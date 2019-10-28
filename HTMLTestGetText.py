@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from Documet_Parser import HTMLParser
+from Document_Parser import HTMLParser
 
 
 class HTMLTestGetText(unittest.TestCase):
