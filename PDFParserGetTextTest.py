@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from Documet_Parser import PDFParser
+from Document_Parser import PDFParser
 
 
 class DocParserGetTextTest(unittest.TestCase):
