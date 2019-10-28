@@ -1,0 +1,25 @@
+from Document_Parser import Parser
+
+import docxpy
+
+
+class DOCXParser(Parser):
+    """
+    Parses all text and links from PDF files
+    """
+
+    def __init__(self, filepath):
+        self.filepath = filepath
+
+    def get_text(self):
+        return docxpy.process(self.filepath)
+
+    def get_links(self):
+        doc = docxpy.DOCReader(self.filepath)
+        doc.process()
+        return doc.data['links']
+
+
+parser = DOCXParser('test.docx')
+print(parser.get_text())
+print(parser.get_links())
