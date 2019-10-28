@@ -3,6 +3,6 @@ Group projects during the "Automated data collection and processing systems" uni
 
 Our Team:
 
-Ermolaev Alexey
+Ermolaev Aleksey
 
 Panchenko Anton
