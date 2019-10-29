@@ -21,6 +21,5 @@ class DOCParser(Parser):
         for line in text:
             result = link_re.search(line)
             result_text = result.groups()
-            # print(result)
             links.append(result_text)
         return links
