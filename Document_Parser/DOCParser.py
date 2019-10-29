@@ -1,6 +1,7 @@
-from Document_Parser import Parser
-
+import re
 import textract
+
+from Document_Parser import Parser
 
 
 class DOCParser(Parser):
@@ -15,9 +16,11 @@ class DOCParser(Parser):
 
     def get_links(self):
         links = []
+        link_re = re.compile(self.LINK_RE_PATTERN, (re.M | re.I))
         text = self.get_text()
+        for line in text:
+            result = link_re.search(line)
+            result_text = result.groups()
+            # print(result)
+            links.append(result_text)
         return links
-
-
-parser = DOCParser('test.doc')
-print(parser.get_text())

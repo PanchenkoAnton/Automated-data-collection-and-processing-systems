@@ -1,8 +1,8 @@
+import re
+import textract
+
 from Document_Parser import Parser
 from PyPDF2 import PdfFileReader
-
-import textract
-import re
 
 
 class PDFParser(Parser):
