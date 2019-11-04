@@ -37,6 +37,11 @@ class HTMLTestGetText(unittest.TestCase):
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
+    def test_ascii_text(self):
+        parser = HTMLParser.HTMLParser(".data/ascii.html")
+        text = parser.get_text()
+        self.assertEqual('╚◙Ї§○ї', text)
+
     def test_russian(self):
         doc, tag, text = Doc().tagtext()
         with tag('html'):

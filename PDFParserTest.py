@@ -31,6 +31,11 @@ class PDFParserGetTextTest(unittest.TestCase):
         text = parser.get_text()
         self.assertEqual(['Hello World!'], text)
 
+    # def test_ascii_text(self):
+    #     parser = PDFParser.PDFParser(".data/ascii.pdf")
+    #     text = parser.get_text()
+    #     self.assertEqual('╚◙Ї§○ї', text)
+
     def test_russian(self):
         parser = PDFParser.PDFParser(".data/russian.pdf")
         text = parser.get_text()

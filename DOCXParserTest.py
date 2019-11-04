@@ -56,6 +56,11 @@ class DocParserGetTextTest(unittest.TestCase):
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
+    def test_ascii_text(self):
+        parser = DOCXParser.DOCXParser(".data/ascii.docx")
+        text = parser.get_text()
+        self.assertEqual('╚◙Ї§○ї', text)
+
     def test_russian(self):
         document = Document()
         document.add_paragraph('Привет, мир!')

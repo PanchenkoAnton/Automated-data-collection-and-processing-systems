@@ -17,6 +17,11 @@ class DocParserGetTextTest(unittest.TestCase):
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
+    def test_ascii_text(self):
+        parser = DOCParser.DOCParser(".data/ascii.doc")
+        text = parser.get_text()
+        self.assertEqual('╚◙Ї§○ї', text)
+
     def test_russian(self):
         parser = DOCParser.DOCParser(".data/russian.doc")
         text = parser.get_text()
