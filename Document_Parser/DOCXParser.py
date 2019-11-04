@@ -17,4 +17,7 @@ class DOCXParser(Parser):
     def get_links(self):
         doc = docxpy.DOCReader(self.filepath)
         doc.process()
-        return doc.data['links']
+        links = []
+        for pair in doc.data['links']:
+            links.append(pair[1])
+        return links
