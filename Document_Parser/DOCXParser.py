@@ -1,4 +1,4 @@
-from Document_Parser import Parser
+from Document_Parser.Parser import Parser
 
 import docxpy
 
@@ -18,8 +18,3 @@ class DOCXParser(Parser):
         doc = docxpy.DOCReader(self.filepath)
         doc.process()
         return doc.data['links']
-
-
-parser = DOCXParser('test.docx')
-print(parser.get_text())
-print(parser.get_links())

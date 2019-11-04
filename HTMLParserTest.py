@@ -6,19 +6,6 @@ from Document_Parser import HTMLParser
 from yattag import Doc
 
 
-def get_html():
-    doc, tag, text = Doc().tagtext()
-    with tag('html'):
-        with tag('body'):
-            with tag('p', id='main'):
-                pass
-            #    text('some text')
-            # with tag('a', href='/my-url'):
-            #     text('some link')
-    result = doc.getvalue()
-    return result
-
-
 def create_html(html, name):
     with open('.data/' + name + '.html', 'w') as file:
         file.write(html)
