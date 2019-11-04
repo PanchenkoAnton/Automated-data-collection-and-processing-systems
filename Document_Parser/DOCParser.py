@@ -1,7 +1,7 @@
 import re
 import textract
 
-from Document_Parser import Parser
+from Document_Parser.Parser import Parser
 
 
 class DOCParser(Parser):
@@ -12,7 +12,7 @@ class DOCParser(Parser):
         self.filepath = filepath
 
     def get_text(self):
-        return textract.process(self.filepath)
+        return textract.process(self.filepath).decode()
 
     def get_links(self):
         links = []
