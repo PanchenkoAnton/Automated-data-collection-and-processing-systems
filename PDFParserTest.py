@@ -17,11 +17,11 @@ class PDFParserGetTextTest(unittest.TestCase):
 
     def test_empty_file(self):
         pdf = get_pdf()
-        pdf.cell(0, txt="1")
+        pdf.cell(0, txt="")
         pdf.output(".data/empty.pdf")
         parser = PDFParser.PDFParser(".data/empty.pdf")
         text = parser.get_text()
-        self.assertEqual(["1"], text)
+        self.assertEqual([""], text)
 
     def test_simple_text(self):
         pdf = get_pdf()
@@ -32,12 +32,9 @@ class PDFParserGetTextTest(unittest.TestCase):
         self.assertEqual(['Hello World!'], text)
 
     def test_russian(self):
-        pdf = get_pdf()
-        pdf.cell(0, txt="Привет")
-        pdf.output(".data/russian.pdf")
         parser = PDFParser.PDFParser(".data/russian.pdf")
         text = parser.get_text()
-        self.assertEqual(['Привет'], text)
+        self.assertEqual(['Привет, мир!'], text)
 
     def test_multiple_lines(self):
         pdf = get_pdf()
@@ -103,6 +100,17 @@ class PDFParserGetTextTest(unittest.TestCase):
         links = parser.get_links()
         self.assertEqual(["HelloWorld"], text)
         self.assertEqual(["spbu.ru", "http://www.apmath.spbu.ru"], links)
+
+    def test_links_in_text(self):
+        pdf = get_pdf()
+        pdf.cell(0, txt="Hello http://www.spbu.ru World")
+        pdf.link(x=5, y=0, w=10, h=10, link="http://www.apmath.spbu.ru")
+        pdf.output(".data/multiple_links.pdf")
+        parser = PDFParser.PDFParser(".data/multiple_links.pdf")
+        text = parser.get_text()
+        links = parser.get_links()
+        self.assertEqual(["Hello http://www.spbu.ru World"], text)
+        self.assertEqual(["http://www.apmath.spbu.ru"], links)
 
 
 if __name__ == '__main__':
