@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from Parser import Parser
+from Document_Parser.Parser import Parser
 
 
 class HTMLParser(Parser):
@@ -8,7 +8,7 @@ class HTMLParser(Parser):
     Constructor args: filepath.
     """
     def __init__(self, filepath):
-        with open(filepath, 'r') as file:
+        with open(filepath, 'rb') as file:
             self.bs = BeautifulSoup(file.read(), 'html.parser')
 
     def get_text(self):
