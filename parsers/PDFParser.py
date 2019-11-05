@@ -1,7 +1,7 @@
 import re
 #import textract
 
-from Document_Parser.Parser import Parser
+from parsers.Parser import Parser
 from PyPDF2 import PdfFileReader
 
 

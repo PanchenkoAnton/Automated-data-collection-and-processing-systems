@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from Document_Parser import DOCXParser
+from parsers import DOCXParser
 import docx
 from docx.enum.dml import MSO_THEME_COLOR_INDEX
 from docx import Document
