@@ -42,34 +42,39 @@ def add_hyperlink(paragraph, text, url):
 class DocParserGetTextTest(unittest.TestCase):
 
     def test_empty_file(self):
+        filename = '../.data/empty.docx'
         document = Document()
-        document.save('.data/empty.docx')
-        parser = DOCXParser.DOCXParser(".data/empty.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual("", text)
 
     def test_simple_text(self):
+        filename = '../.data/hello_world.docx'
         document = Document()
         document.add_paragraph('Hello, world!')
-        document.save('.data/hello_world.docx')
-        parser = DOCXParser.DOCXParser(".data/hello_world.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
     def test_ascii_text(self):
-        parser = DOCXParser.DOCXParser(".data/ascii.docx")
+        filename = '../.data/ascii.docx'
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual('╚◙Ї§○ї', text)
 
     def test_russian(self):
+        filename = '../.data/russian.docx'
         document = Document()
         document.add_paragraph('Привет, мир!')
-        document.save('.data/russian.docx')
-        parser = DOCXParser.DOCXParser(".data/russian.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual('Привет, мир!', text)
 
     def test_multiple_lines(self):
+        filename = '../.data/multiple_lines.docx'
         document = Document()
         document.add_heading('Document Title', 0)
         p = document.add_paragraph('Example ')
@@ -78,64 +83,69 @@ class DocParserGetTextTest(unittest.TestCase):
         p.add_run('italic.').italic = True
         document.add_heading('Heading, level 1', level=1)
         document.add_paragraph('Intense quote', style='Intense Quote')
-        document.save('.data/multiple_lines.docx')
-        parser = DOCXParser.DOCXParser(".data/multiple_lines.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual('Document Title\n\nExample bold and some italic.\n\nHeading, level 1\n\nIntense quote', text)
 
     def test_special_symbols(self):
+        filename = '../.data/special_symbols.docx'
         test_text = "`@#$%^&*()_+-=[]{}:;\"|\\'<,>.?/"
         document = Document()
         document.add_paragraph(test_text)
-        document.save('.data/special_symbols.docx')
-        parser = DOCXParser.DOCXParser(".data/special_symbols.docx")
+        document.save('filename')
+        parser = DOCXParser.DOCXParser("filename")
         text = parser.get_text()
         self.assertEqual(test_text, text)
 
     def test_with_image(self):
+        filename = '../.data/with_image.docx'
         document = Document()
         document.add_paragraph('Hello, world!')
         document.add_picture('.data/korablik-parusnik-model.jpg', width=Inches(1.25))
         document.add_paragraph('Hello!')
-        document.save('.data/with_image.docx')
-        parser = DOCXParser.DOCXParser(".data/with_image.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         self.assertEqual('Hello, world!\n\n\n\nHello!', text)
 
     def test_link(self):
+        filename = '../.data/link.docx'
         document = Document()
         document.add_paragraph('Hello, world!')
         p = document.add_paragraph('Hello! ')
         add_hyperlink(p, 'Link', "spbu.ru")
-        document.save('.data/link.docx')
-        parser = DOCXParser.DOCXParser(".data/link.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         text = parser.get_text()
         link = parser.get_links()
         self.assertEqual('Hello, world!\n\nHello! Link', text)
         self.assertEqual(['spbu.ru'], link)
 
     def test_multiple_links(self):
+        filename = '../.data/multiple_links.docx'
         document = Document()
         document.add_paragraph('Hello, world!')
         p = document.add_paragraph('Hello! ')
         add_hyperlink(p, 'Link1', "spbu.ru")
         p = document.add_paragraph('\n\nParagraph with another link ')
         add_hyperlink(p, 'Link2', "http://www.apmath.spbu.ru")
-        document.save('.data/multiple_links.docx')
-        parser = DOCXParser.DOCXParser(".data/multiple_links.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         link = parser.get_links()
         text = parser.get_text()
         self.assertEqual(["spbu.ru", "http://www.apmath.spbu.ru"], link)
         self.assertEqual('Hello, world!\n\nHello! Link1\n\n\n\nParagraph with another link Link2', text)
 
     def test_links_in_text(self):
+        filename = '../.data/links_in_text.docx'
         document = Document()
         document.add_paragraph('Hello, world!')
         p = document.add_paragraph('Hello! ')
         add_hyperlink(p, 'Link1', "spbu.ru")
         document.add_paragraph('Paragraph with link (http://www.apmath.spbu.ru) in text')
-        document.save('.data/links_in_text.docx')
-        parser = DOCXParser.DOCXParser(".data/links_in_text.docx")
+        document.save(filename)
+        parser = DOCXParser.DOCXParser(filename)
         link = parser.get_links()
         text = parser.get_text()
         self.assertEqual(["spbu.ru"], link)

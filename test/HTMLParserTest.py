@@ -3,11 +3,12 @@
 
 import unittest
 from parsers import HTMLParser
+
 from yattag import Doc
 
 
 def create_html(html, name):
-    with open('.data/' + name + '.html', 'w') as file:
+    with open('../.data/' + name + '.html', 'w') as file:
         file.write(html)
 
 
@@ -21,7 +22,7 @@ class HTMLTestGetText(unittest.TestCase):
                     pass
         result = doc.getvalue()
         create_html(result, 'empty')
-        parser = HTMLParser.HTMLParser(".data/empty.html")
+        parser = HTMLParser.HTMLParser("../.data/empty.html")
         text = parser.get_text()
         self.assertEqual("", text)
 
@@ -33,12 +34,12 @@ class HTMLTestGetText(unittest.TestCase):
                     text('Hello, world!')
         result = doc.getvalue()
         create_html(result, 'hello_world')
-        parser = HTMLParser.HTMLParser(".data/hello_world.html")
+        parser = HTMLParser.HTMLParser("../.data/hello_world.html")
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
     def test_ascii_text(self):
-        parser = HTMLParser.HTMLParser(".data/ascii.html")
+        parser = HTMLParser.HTMLParser("../.data/ascii.html")
         text = parser.get_text()
         self.assertEqual('╚◙Ї§○ї', text)
 
@@ -50,7 +51,7 @@ class HTMLTestGetText(unittest.TestCase):
                     text('Привет, мир!')
         result = doc.getvalue()
         create_html(result, 'russian')
-        parser = HTMLParser.HTMLParser(".data/russian.html")
+        parser = HTMLParser.HTMLParser("../.data/russian.html")
         text = parser.get_text()
         self.assertEqual('Привет, мир!', text)
 
@@ -67,7 +68,7 @@ class HTMLTestGetText(unittest.TestCase):
                         text('!')
         result = doc.getvalue()
         create_html(result, 'multiple_lines')
-        parser = HTMLParser.HTMLParser(".data/multiple_lines.html")
+        parser = HTMLParser.HTMLParser("../.data/multiple_lines.html")
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
@@ -80,7 +81,7 @@ class HTMLTestGetText(unittest.TestCase):
                     text(test_text)
         result = doc.getvalue()
         create_html(result, 'special_symbols')
-        parser = HTMLParser.HTMLParser(".data/special_symbols.html")
+        parser = HTMLParser.HTMLParser("../.data/special_symbols.html")
         text = parser.get_text()
         self.assertEqual(test_text, text)
 
@@ -96,7 +97,7 @@ class HTMLTestGetText(unittest.TestCase):
                     text('world!')
         result = doc.getvalue()
         create_html(result, 'with_image')
-        parser = HTMLParser.HTMLParser(".data/with_image.html")
+        parser = HTMLParser.HTMLParser("../.data/with_image.html")
         text = parser.get_text()
         self.assertEqual('Hello, world!', text)
 
@@ -108,7 +109,7 @@ class HTMLTestGetText(unittest.TestCase):
                     text('Hello, world!')
         result = doc.getvalue()
         create_html(result, 'link')
-        parser = HTMLParser.HTMLParser(".data/link.html")
+        parser = HTMLParser.HTMLParser("../.data/link.html")
         link = parser.get_links()
         text = parser.get_text()
         self.assertEqual(['spbu.ru'], link)
@@ -130,7 +131,7 @@ class HTMLTestGetText(unittest.TestCase):
 
         result = doc.getvalue()
         create_html(result, 'multiple_links')
-        parser = HTMLParser.HTMLParser(".data/multiple_links.html")
+        parser = HTMLParser.HTMLParser("../.data/multiple_links.html")
         link = parser.get_links()
         text = parser.get_text()
         self.assertEqual(["spbu.ru", "http://www.apmath.spbu.ru"], link)
@@ -150,7 +151,7 @@ class HTMLTestGetText(unittest.TestCase):
 
         result = doc.getvalue()
         create_html(result, 'links_in_text')
-        parser = HTMLParser.HTMLParser(".data/links_in_text.html")
+        parser = HTMLParser.HTMLParser("../.data/links_in_text.html")
         link = parser.get_links()
         text = parser.get_text()
         self.assertEqual(["spbu.ru"], link)
