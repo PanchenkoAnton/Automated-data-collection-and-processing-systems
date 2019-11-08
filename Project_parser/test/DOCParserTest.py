@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from parsers import DOCParser
+from Project_parser.parsers import DOCParser
 
 
 class DocParserGetTextTest(unittest.TestCase):

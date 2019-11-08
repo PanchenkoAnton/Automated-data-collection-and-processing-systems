@@ -1,7 +1,7 @@
 import re
 import textract
 
-from parsers.Parser import Parser
+from Project_parser.parsers.Parser import Parser
 
 
 class DOCParser(Parser):

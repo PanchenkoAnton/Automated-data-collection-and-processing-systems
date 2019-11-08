@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from parsers import PDFParser
+from Project_parser.parsers import PDFParser
 from fpdf import FPDF
 
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from parsers import HTMLParser
+from Project_parser.parsers import HTMLParser
 
 from yattag import Doc
 

@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from parsers.Parser import Parser
+from Project_parser.parsers.Parser import Parser
 
 
 class HTMLParser(Parser):

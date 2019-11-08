@@ -1,4 +1,4 @@
-from parsers.Parser import Parser
+from Project_parser.parsers.Parser import Parser
 
 import docxpy
 
