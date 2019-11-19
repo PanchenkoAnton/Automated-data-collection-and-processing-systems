@@ -22,54 +22,66 @@ class Purumpurum(CrawlSpider):
 
     external_urls = set()
 
-    stats = {"count": 0, "statuses": {}}
+    subdomains_urls = set()
+
+    files_urls = set()
+
+    stats = {"count": 0, "statuses": {200: [0]}}
 
     name = "purumpurum"
 
-    allowed_domains = ["crawler-test.com"]
+    allowed_domains = ["http://titan.dcs.bbk.ac.uk/"]
 
-    start_urls = ["https://crawler-test.com/links/max_external_links"]
+    start_urls = ["http://titan.dcs.bbk.ac.uk/~kikpef01/testpage.html"]
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
     custom_settings = {'FEED_URI': "test.json",
                        'FEED_FORMAT': 'json'}
 
-    def start_requests(self):
-        for url in self.start_urls:
-            yield scrapy.Request(url, callback=self.parse, dont_filter=True)
-
     def parse(self, response):
-        self.statistics(response)
+        self.statistics(response.url, response.status)
+        if response.status != 200: return
         item = ScraperItem()
         item['url'] = response.url
         item['external_links'] = []
         item['internal_links'] = []
         item['subdomains_links'] = []
-        for link in LinkExtractor().extract_links(response):
-            for allowed_domain in self.allowed_domains:
+        try:
+            for link in LinkExtractor().extract_links(response):
+                for allowed_domain in self.allowed_domains:
 
-                if compare_domains(allowed_domain, link.url):
+                    if compare_domains(allowed_domain, link.url):
 
-                    if tldextract.extract(link.url).subdomain:
-                        item['subdomains_links'].append(link.url)
-                        continue
+                        if tldextract.extract(link.url).subdomain:
+                            item['subdomains_links'].append(link.url)
+                            self.subdomains_urls.add(link.url)
+                            continue
 
-                    item['internal_links'].append(link.url)
+                        item['internal_links'].append(link.url)
 
-                    if link.url not in self.internal_urls:
-                        self.internal_urls.add(link.url)
-                        yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
-                else:
-                    item['external_links'].append(link.url)
+                        if link.url not in self.internal_urls:
+                            self.internal_urls.add(link.url)
+                            yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
+
+                    else:
+                        item['external_links'].append(link.url)
+                        self.external_urls.add(link.url)
+        except Exception as e:
+            self.files_urls.add(response.url)
         return item
 
-    def statistics(self, response):
-        if response.status in self.stats['statuses']:
-            self.stats['statuses'][response.status] += 1
-        else:
-            self.stats['statuses'][response.status] = 1
+    def statistics(self, url, status):
         self.stats['count'] += 1
+        if status == 200:
+            self.stats['statuses'][status][0] += 1
+            return
+        if status in self.stats['statuses']:
+            self.stats['statuses'][status][0] += 1
+            self.stats['statuses'][status][1].add(url)
+        else:
+            self.stats['statuses'][status] = [1, set([url])]
+
         print(self.stats)
 
 
@@ -79,7 +91,12 @@ if __name__ == "__main__":
                       ' like Gecko) Chrome/74.0.3729.157 Safari/537.36',
         'HTTPCACHE_ENABLED': True,
         'AUTOTHROTTLE_ENABLED': True,
-        'DOWNLOAD_DELAY': 1
+        'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
+        'HTTPERROR_ALLOW_ALL': True,
+        'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
+        'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
+        'CONCURRENT_REQUESTS': 33,
+        'LOG_LEVEL': 'DEBUG'
 
     })
     process.crawl(Purumpurum)
