@@ -30,18 +30,22 @@ class Purumpurum(CrawlSpider):
 
     name = "purumpurum"
 
-    allowed_domains = ["http://titan.dcs.bbk.ac.uk/"]
+    allowed_domains = ["spbu.ru"]
 
-    start_urls = ["http://titan.dcs.bbk.ac.uk/~kikpef01/testpage.html"]
+    start_urls = ["https://spbu.ru/"]
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
     custom_settings = {'FEED_URI': "test.json",
                        'FEED_FORMAT': 'json'}
 
+    def start_requests(self):
+        for url in self.start_urls:
+            yield scrapy.Request(url, callback=self.parse, dont_filter=True)
+
     def parse(self, response):
         self.statistics(response.url, response.status)
-        if response.status != 200: return
+        if response.status != 200: yield
         item = ScraperItem()
         item['url'] = response.url
         item['external_links'] = []
@@ -68,8 +72,9 @@ class Purumpurum(CrawlSpider):
                         item['external_links'].append(link.url)
                         self.external_urls.add(link.url)
         except Exception as e:
+            item['files_links'].append(response.url)
             self.files_urls.add(response.url)
-        return item
+        yield item
 
     def statistics(self, url, status):
         self.stats['count'] += 1

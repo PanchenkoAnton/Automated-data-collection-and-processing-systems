@@ -8,4 +8,5 @@ class ScraperItem(scrapy.Item):
     external_links = scrapy.Field()
     internal_links = scrapy.Field()
     subdomains_links = scrapy.Field()
+    files_links = scrapy.Field()
 
