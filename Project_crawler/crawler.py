@@ -36,7 +36,7 @@ class Purumpurum(CrawlSpider):
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
-    custom_settings = {'FEED_URI': "test.json",
+    custom_settings = {'FEED_URI': "output.json",
                        'FEED_FORMAT': 'json'}
 
     def start_requests(self):
@@ -51,13 +51,14 @@ class Purumpurum(CrawlSpider):
         item['external_links'] = []
         item['internal_links'] = []
         item['subdomains_links'] = []
+        item['files_links'] = []
         try:
             for link in LinkExtractor().extract_links(response):
                 for allowed_domain in self.allowed_domains:
 
                     if compare_domains(allowed_domain, link.url):
 
-                        if tldextract.extract(link.url).subdomain:
+                        if tldextract.extract(link.url).subdomain and tldextract.extract(link.url).subdomain != 'www':
                             item['subdomains_links'].append(link.url)
                             self.subdomains_urls.add(link.url)
                             continue
@@ -101,7 +102,7 @@ if __name__ == "__main__":
         'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
         'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
         'CONCURRENT_REQUESTS': 33,
-        'LOG_LEVEL': 'DEBUG'
+        'LOG_LEVEL': 'INFO'
 
     })
     process.crawl(Purumpurum)
