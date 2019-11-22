@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
+import asyncio
+import json
 
 import scrapy
 import tldextract
+from motor.motor_asyncio import AsyncIOMotorClient
 from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import Rule, CrawlSpider
 
 from Project_crawler.scraper_item import ScraperItem
+
+db = AsyncIOMotorClient('localhost', 27000)['crawler']
 
 
 def get_domain(link):
@@ -17,27 +22,37 @@ def compare_domains(link1, link2):
     return get_domain(link1) == get_domain(link2)
 
 
+async def insert(collection, document):
+    await collection.insert_one(dict(document))
+
+
+internal_urls = set()
+
+external_urls = set()
+
+subdomains_urls = set()
+
+files_urls = set()
+
+
 class Purumpurum(CrawlSpider):
-    internal_urls = set()
-
-    external_urls = set()
-
-    subdomains_urls = set()
-
-    files_urls = set()
-
     stats = {"count": 0, "statuses": {200: [0]}}
 
     name = "purumpurum"
 
-    allowed_domains = ["spbu.ru"]
+    allowed_domains = ["msu.ru"]
 
-    start_urls = ["https://spbu.ru/"]
+    start_urls = ["https://msu.ru/"]
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
-    custom_settings = {'FEED_URI': "output.json",
-                       'FEED_FORMAT': 'json'}
+    # custom_settings = {'FEED_URI': "output.json",
+    #                    'FEED_FORMAT': 'json'}
+
+    collection = get_domain(start_urls[0])
+    collection = db[collection]
+
+    loop = asyncio.get_event_loop()
 
     def start_requests(self):
         for url in self.start_urls:
@@ -45,9 +60,12 @@ class Purumpurum(CrawlSpider):
 
     def parse(self, response):
         self.statistics(response.url, response.status)
-        if response.status != 200: yield
         item = ScraperItem()
         item['url'] = response.url
+        if response.status != 200:
+            item['data'] = json.dumps(str(response.body))
+            return
+        item['data'] = json.dumps(str(response.body))
         item['external_links'] = []
         item['internal_links'] = []
         item['subdomains_links'] = []
@@ -60,21 +78,24 @@ class Purumpurum(CrawlSpider):
 
                         if tldextract.extract(link.url).subdomain and tldextract.extract(link.url).subdomain != 'www':
                             item['subdomains_links'].append(link.url)
-                            self.subdomains_urls.add(link.url)
+                            subdomains_urls.add(link.url)
                             continue
 
                         item['internal_links'].append(link.url)
 
-                        if link.url not in self.internal_urls:
-                            self.internal_urls.add(link.url)
+                        if link.url not in internal_urls:
+                            internal_urls.add(link.url)
                             yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
 
                     else:
                         item['external_links'].append(link.url)
-                        self.external_urls.add(link.url)
-        except Exception as e:
+                        external_urls.add(link.url)
+        except Exception:
             item['files_links'].append(response.url)
-            self.files_urls.add(response.url)
+            files_urls.add(response.url)
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        self.loop.run_until_complete(insert(self.collection, item))
+        # self.loop.close()
         yield item
 
     def statistics(self, url, status):
@@ -107,3 +128,7 @@ if __name__ == "__main__":
     })
     process.crawl(Purumpurum)
     process.start()
+    insert(db['statistics'], {"internal_urls": internal_urls})
+    insert(db['statistics'], {"external_urls": external_urls})
+    insert(db['statistics'], {"subdomains_urls": subdomains_urls})
+    insert(db['statistics'], {"files_urls": files_urls})
