@@ -34,6 +34,8 @@ subdomains_urls = set()
 
 files_urls = set()
 
+loop = asyncio.get_event_loop()
+
 
 class Purumpurum(CrawlSpider):
     stats = {"count": 0, "statuses": {200: [0]}}
@@ -46,13 +48,8 @@ class Purumpurum(CrawlSpider):
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
-    # custom_settings = {'FEED_URI': "output.json",
-    #                    'FEED_FORMAT': 'json'}
-
     collection = get_domain(start_urls[0])
     collection = db[collection]
-
-    loop = asyncio.get_event_loop()
 
     def start_requests(self):
         for url in self.start_urls:
@@ -93,9 +90,9 @@ class Purumpurum(CrawlSpider):
         except Exception:
             item['files_links'].append(response.url)
             files_urls.add(response.url)
+
         asyncio.set_event_loop(asyncio.new_event_loop())
-        self.loop.run_until_complete(insert(self.collection, item))
-        # self.loop.close()
+        loop.run_until_complete(insert(self.collection, item))
         yield item
 
     def statistics(self, url, status):
@@ -128,7 +125,10 @@ if __name__ == "__main__":
     })
     process.crawl(Purumpurum)
     process.start()
-    insert(db['statistics'], {"internal_urls": internal_urls})
-    insert(db['statistics'], {"external_urls": external_urls})
-    insert(db['statistics'], {"subdomains_urls": subdomains_urls})
-    insert(db['statistics'], {"files_urls": files_urls})
+    asyncio.set_event_loop(asyncio.new_event_loop())
+    loop.run_until_complete(insert(db['Unique links'], {"name": "insert domain name",
+                                                        "internal_urls": list(internal_urls),
+                                                        "external_urls": list(external_urls),
+                                                        "subdomains_urls": list(subdomains_urls),
+                                                        "files_urls": list(files_urls)}))
+    loop.close()
