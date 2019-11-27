@@ -16,14 +16,14 @@
 
 ## MSU
 
-* 'downloader/request_count': 66979,
-* 'downloader/response_count': 66979,
-* 'downloader/response_status_count/200': 59363,
-* 'downloader/response_status_count/301': 282,
-* 'downloader/response_status_count/302': 846,
+* 'downloader/request_count': 66331,
+* 'downloader/response_count': 66331,
+* 'downloader/response_status_count/200': 59079,
+* 'downloader/response_status_count/301': 270,
+* 'downloader/response_status_count/302': 780,
 * 'downloader/response_status_count/403': 1,
-* 'downloader/response_status_count/404': 419,
-* 'downloader/response_status_count/503': 6068,
-* 'elapsed_time_seconds': 6640.919541,
-* 'item_scraped_count': 61797,
-* 'request_depth_max': 97
+* 'downloader/response_status_count/404': 189,
+* 'downloader/response_status_count/503': 6012,
+* 'elapsed_time_seconds': 1780.440302,
+* 'item_scraped_count': 59078,
+* 'request_depth_max': 84
