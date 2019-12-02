@@ -11,7 +11,7 @@ from scrapy.spiders import Rule, CrawlSpider
 
 from Project_crawler.scraper_item import ScraperItem
 
-db = AsyncIOMotorClient('localhost', 27000)['crawler']
+db = AsyncIOMotorClient('localhost', 27017)['crawler']
 
 
 def get_domain(link):
