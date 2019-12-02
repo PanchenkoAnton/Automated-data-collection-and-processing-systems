@@ -46,6 +46,9 @@ class Purumpurum(CrawlSpider):
 
     start_urls = ["https://msu.ru/"]
 
+    custom_settings = {'FEED_URI': "output.json",
+                       'FEED_FORMAT': 'json'}
+
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
     collection = get_domain(start_urls[0])

@@ -6,11 +6,18 @@ from scrapy.crawler import CrawlerProcess
 
 from Project_crawler.crawler import insert
 from Project_crawler.crawlers_for_testing import BrokenLinksInternalCrawler, \
-    BrokenLinksExternalCrawler
+    BrokenLinksExternalCrawler, MaxExternalLinksCrawler
 
 
 class MyTestCase(unittest.TestCase):
-    def setUp(self):
+    consistency = {
+        'test_broken_links_internal': BrokenLinksInternalCrawler,
+        'test_broken_links_external': BrokenLinksExternalCrawler,
+        'test_max_external_links': MaxExternalLinksCrawler,
+    }
+
+    @classmethod
+    def setUpClass(cls):
         internal_urls = set()
         external_urls = set()
         subdomains_urls = set()
@@ -26,11 +33,18 @@ class MyTestCase(unittest.TestCase):
             'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
             'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
             'CONCURRENT_REQUESTS': 33,
-            'LOG_LEVEL': 'INFO'
-
+            'LOG_LEVEL': 'INFO',
+            'FEED_FORMAT': 'jsonlines',
+            'FEED_URI': 'results.json'
         })
-        process.crawl(BrokenLinksInternalCrawler)
-        process.crawl(BrokenLinksExternalCrawler)
+        # a = self.id()
+        # 'CrawlerTest.MyTestCase.test_broken_links_external'
+        cls.broken_links_external_crawler = \
+            process.create_crawler(BrokenLinksExternalCrawler)
+        process.crawl(cls.broken_links_external_crawler)
+        # process.crawl(BrokenLinksInternalCrawler)
+        # process.crawl(BrokenLinksExternalCrawler)
+        # process.crawl(MaxExternalLinksCrawler)
         process.start()
         asyncio.set_event_loop(asyncio.new_event_loop())
         loop = asyncio.get_event_loop()
@@ -44,11 +58,15 @@ class MyTestCase(unittest.TestCase):
         }))
 
     def test_broken_links_internal(self):
-        # self.assertEqual()
-        pass
+        a = self.broken_links_external_crawler.stats.get_stats()
+        self.assertEqual(self.broken_links_external_crawler.stats, 0)
 
     def test_broken_links_external(self):
         pass
+
+    def test_max_external_links(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
