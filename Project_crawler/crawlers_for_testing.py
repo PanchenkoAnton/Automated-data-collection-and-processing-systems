@@ -92,6 +92,6 @@ class URLWithForeignCharactersCrawler(Purumpurum):
          "すべての単語が高校程度の辞書に載っている"]
 
 
-class ForeignCharacterDomain(Purumpurum):
+class ForeignCharacterDomainCrawler(Purumpurum):
     name = 'testcrawler'
     start_urls = ["http://www.søkbar.no/"]
