@@ -35,3 +35,63 @@ class ExternalLinksToDisallowedCrawler(Purumpurum):
 class NonStandardLinksCrawler(Purumpurum):
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/non_standard_links"]
+
+
+class WhitespaceInLinksCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["https://crawler-test.com/links/whitespace_in_links"]
+
+
+class DoubleSlashDisallowedStartCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = \
+        ["https://crawler-test.com//urls/double_slash/disallowed_start"]
+
+
+class DoubleSlashDisallowedMiddleCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = \
+        ["https://crawler-test.com//urls/double_slash//disallowed_middle"]
+
+
+class DoubleSlashDisallowedEndCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = \
+        ["https://crawler-test.com//urls/double_slash/disallowed_end//"]
+
+
+class HTTPNonWWWCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["http://crawler-test.com/"]
+
+
+class HTTPCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["http://www.crawler-test.com/"]
+
+
+class HTTPSCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["https://crawler-test.com/"]
+
+
+class NonHeadTagInsideHeadTagCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["http://crawler-test.com/other/non_head_tag_in_head"]
+
+
+class InfiniteRedirectCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["http://crawler-test.com/redirects/infinite_redirect"]
+
+
+class URLWithForeignCharactersCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = \
+        ["http://crawler-test.com/encoding/url_with_foreign_characters/"
+         "すべての単語が高校程度の辞書に載っている"]
+
+
+class ForeignCharacterDomain(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["http://www.søkbar.no/"]

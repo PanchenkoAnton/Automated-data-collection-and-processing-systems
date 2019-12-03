@@ -1,4 +1,5 @@
 import asyncio
+import json
 import unittest
 
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -49,6 +50,7 @@ class MyTestCase(unittest.TestCase):
         asyncio.set_event_loop(asyncio.new_event_loop())
         loop = asyncio.get_event_loop()
         db = AsyncIOMotorClient('localhost', 27017)['crawler']
+        cls.db = db
         loop.run_until_complete(insert(db['Unique links'], {
             'name': 'insert domain name',
             'internal_urls': list(internal_urls),
@@ -58,8 +60,20 @@ class MyTestCase(unittest.TestCase):
         }))
 
     def test_broken_links_internal(self):
-        a = self.broken_links_external_crawler.stats.get_stats()
-        self.assertEqual(self.broken_links_external_crawler.stats, 0)
+        test_page = None
+        with open('output.json') as file:
+            for line in file:
+                page = json.loads(line)
+                for key in page:
+                    if "https://crawler-test.com/links/broken_links_internal" in key:
+                        test_page = page[key]
+        if not test_page:
+            self.fail()
+        self.assertEqual(test_page['links'], 1)
+
+
+        # a = self.db["https://crawler-test.com/links/broken_links_internal"]['internal_urls']
+        # self.assertEqual(self.broken_links_external_crawler.stats, 0)
 
     def test_broken_links_external(self):
         pass
