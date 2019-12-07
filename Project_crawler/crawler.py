@@ -4,55 +4,34 @@ import json
 
 import scrapy
 import tldextract
-from motor.motor_asyncio import AsyncIOMotorClient
+from scrapy import signals
 from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import Rule, CrawlSpider
 
+from Project_crawler.GlobalCrawlerStats import GlobalCrawlerStats
 from Project_crawler.scraper_item import ScraperItem
-
-db = AsyncIOMotorClient('localhost', 27017)['crawler']
-
-
-def get_domain(link):
-    return tldextract.extract(link).domain
-
-
-def compare_domains(link1, link2):
-    return get_domain(link1) == get_domain(link2)
-
-
-async def insert(collection, document):
-    await collection.insert_one(dict(document))
-
-
-internal_urls = set()
-
-external_urls = set()
-
-subdomains_urls = set()
-
-files_urls = set()
-
-loop = asyncio.get_event_loop()
 
 
 class Purumpurum(CrawlSpider):
-    stats = {"count": 0, "statuses": {200: [0]}}
+
+    @classmethod
+    def from_crawler(cls, crawler, *args, **kwargs):
+        spider = super(Purumpurum, cls).from_crawler(crawler, *args, **kwargs)
+        crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
+        return spider
 
     name = "purumpurum"
 
-    allowed_domains = ["msu.ru"]
+    allowed_domains = ["msu"]
 
     start_urls = ["https://msu.ru/"]
 
-    custom_settings = {'FEED_URI': "output.json",
-                       'FEED_FORMAT': 'json'}
+    global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
-    collection = get_domain(start_urls[0])
-    collection = db[collection]
+    collection = global_stats.db[global_stats.name]
 
     def start_requests(self):
         for url in self.start_urls:
@@ -74,42 +53,48 @@ class Purumpurum(CrawlSpider):
             for link in LinkExtractor().extract_links(response):
                 for allowed_domain in self.allowed_domains:
 
-                    if compare_domains(allowed_domain, link.url):
+                    if self.global_stats.compare_domains(allowed_domain, link.url):
 
-                        if tldextract.extract(link.url).subdomain and tldextract.extract(link.url).subdomain != 'www':
+                        if tldextract.extract(link.url).subdomain and tldextract.extract(
+                                link.url).subdomain != 'www':
                             item['subdomains_links'].append(link.url)
-                            subdomains_urls.add(link.url)
+                            self.global_stats.subdomains_urls.add(link.url)
                             continue
 
                         item['internal_links'].append(link.url)
 
-                        if link.url not in internal_urls:
-                            internal_urls.add(link.url)
+                        if link.url not in self.global_stats.internal_urls:
+                            self.global_stats.internal_urls.add(link.url)
                             yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
 
                     else:
                         item['external_links'].append(link.url)
-                        external_urls.add(link.url)
+                        self.global_stats.external_urls.add(link.url)
         except Exception:
             item['files_links'].append(response.url)
-            files_urls.add(response.url)
+            self.global_stats.files_urls.add(response.url)
 
         asyncio.set_event_loop(asyncio.new_event_loop())
-        loop.run_until_complete(insert(self.collection, item))
+        self.global_stats.loop.run_until_complete(self.global_stats.insert(self.collection, item))
         yield item
 
     def statistics(self, url, status):
-        self.stats['count'] += 1
-        if status == 200:
-            self.stats['statuses'][status][0] += 1
+        status = str(status)
+        self.global_stats.stats['count'] += 1
+        if status == '200':
+            self.global_stats.stats['statuses'][status][0] += 1
             return
-        if status in self.stats['statuses']:
-            self.stats['statuses'][status][0] += 1
-            self.stats['statuses'][status][1].add(url)
+        if status in self.global_stats.stats['statuses']:
+            self.global_stats.stats['statuses'][status][0] += 1
+            self.global_stats.stats['statuses'][status][1].add(url)
         else:
-            self.stats['statuses'][status] = [1, set([url])]
+            self.global_stats.stats['statuses'][status] = [1, set([url])]
 
-        print(self.stats)
+        print(self.global_stats.stats)
+
+    def spider_closed(self, spider):
+        spider.logger.info("Writing to database ...")
+        self.global_stats.write_to_db()
 
 
 if __name__ == "__main__":
@@ -123,15 +108,10 @@ if __name__ == "__main__":
         'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
         'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
         'CONCURRENT_REQUESTS': 33,
-        'LOG_LEVEL': 'INFO'
+        'LOG_LEVEL': 'INFO',
+        'FEED_URI': "output.json",
+        'FEED_FORMAT': 'json'
 
     })
     process.crawl(Purumpurum)
     process.start()
-    asyncio.set_event_loop(asyncio.new_event_loop())
-    loop.run_until_complete(insert(db['Unique links'], {"name": "insert domain name",
-                                                        "internal_urls": list(internal_urls),
-                                                        "external_urls": list(external_urls),
-                                                        "subdomains_urls": list(subdomains_urls),
-                                                        "files_urls": list(files_urls)}))
-    loop.close()
