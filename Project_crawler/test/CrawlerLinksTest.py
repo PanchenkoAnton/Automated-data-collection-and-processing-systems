@@ -8,7 +8,7 @@ from Project_crawler.crawlers_for_testing import BrokenLinksInternalCrawler, \
     BrokenLinksExternalCrawler, MaxExternalLinksCrawler, SubdomainCrawler, \
     RepeatedExternalLinksCrawler, RepeatedInternalLinksCrawler, \
     ExternalLinksToDisallowedCrawler, NonStandardLinksCrawler, \
-    WhitespaceInLinksCrawler
+    WhitespaceInLinksCrawler, InfiniteRedirectCrawler
 
 
 class CrawlerLinksTestCase(unittest.TestCase):
@@ -41,6 +41,7 @@ class CrawlerLinksTestCase(unittest.TestCase):
         process.crawl(ExternalLinksToDisallowedCrawler)
         process.crawl(NonStandardLinksCrawler)
         process.crawl(WhitespaceInLinksCrawler)
+        process.crawl(InfiniteRedirectCrawler)
         process.start()
 
     def test_broken_links_internal(self):
@@ -128,35 +129,15 @@ class CrawlerLinksTestCase(unittest.TestCase):
                     self.assertEqual(len(line['subdomains_links']), 0)
                     self.assertEqual(len(line['files_links']), 0)
 
-    def test_double_slash_disallowed_start(self):
-        pass
-
-    def test_double_slash_disallowed_middle(self):
-        pass
-
-    def test_double_slash_disallowed_end(self):
-        pass
-
-    def test_http_non_www(self):
-        pass
-
-    def test_http(self):
-        pass
-
-    def test_https(self):
-        pass
-
-    def test_non_head_tag_inside_head_tag(self):
-        pass
-
     def test_infinite_redirect(self):
-        pass
-
-    def test_url_with_foreign_characters(self):
-        pass
-
-    def test_foreign_character_domain(self):
-        pass
+        with open('output.json') as file:
+            for line in file:
+                line = json.loads(line)
+                if line['url'] == InfiniteRedirectCrawler.start_urls[0]:
+                    self.assertEqual(len(line['external_links']), 0)
+                    self.assertEqual(len(line['internal_links']), 0)
+                    self.assertEqual(len(line['subdomains_links']), 0)
+                    self.assertEqual(len(line['files_links']), 0)
 
 
 if __name__ == '__main__':

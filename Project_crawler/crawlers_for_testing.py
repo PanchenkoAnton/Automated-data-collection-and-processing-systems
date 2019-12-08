@@ -57,49 +57,58 @@ class WhitespaceInLinksCrawler(Purumpurum):
 
 
 class DoubleSlashDisallowedStartCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = \
         ["https://crawler-test.com//urls/double_slash/disallowed_start"]
 
 
 class DoubleSlashDisallowedMiddleCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = \
         ["https://crawler-test.com//urls/double_slash//disallowed_middle"]
 
 
 class DoubleSlashDisallowedEndCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = \
         ["https://crawler-test.com//urls/double_slash/disallowed_end//"]
 
 
 class HTTPNonWWWCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["http://crawler-test.com/"]
 
 
 class HTTPCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["http://www.crawler-test.com/"]
 
 
 class HTTPSCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/"]
 
 
 class NonHeadTagInsideHeadTagCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["http://crawler-test.com/other/non_head_tag_in_head"]
 
 
 class InfiniteRedirectCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["http://crawler-test.com/redirects/infinite_redirect"]
 
 
 class URLWithForeignCharactersCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = \
         ["http://crawler-test.com/encoding/url_with_foreign_characters/"
@@ -107,6 +116,7 @@ class URLWithForeignCharactersCrawler(Purumpurum):
 
 
 class ForeignCharacterDomainCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["http://www.søkbar.no/"]
 
