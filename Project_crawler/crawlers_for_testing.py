@@ -14,8 +14,15 @@ class BrokenLinksExternalCrawler(Purumpurum):
 
 
 class MaxExternalLinksCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/max_external_links"]
+
+
+class SubdomainCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
+    name = 'testcrawler'
+    start_urls = ["https://subdomain.crawler-test.com"]
 
 
 class RepeatedExternalLinksCrawler(Purumpurum):

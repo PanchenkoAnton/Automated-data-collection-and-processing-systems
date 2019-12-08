@@ -1,13 +1,11 @@
-import asyncio
 import json
 import os
 import unittest
 
-from motor.motor_asyncio import AsyncIOMotorClient
 from scrapy.crawler import CrawlerProcess
 
 from Project_crawler.crawlers_for_testing import BrokenLinksInternalCrawler, \
-    BrokenLinksExternalCrawler, MaxExternalLinksCrawler
+    BrokenLinksExternalCrawler, MaxExternalLinksCrawler, SubdomainCrawler
 
 
 class MyTestCase(unittest.TestCase):
@@ -33,7 +31,8 @@ class MyTestCase(unittest.TestCase):
         })
         process.crawl(BrokenLinksInternalCrawler)
         process.crawl(BrokenLinksExternalCrawler)
-        # process.crawl(MaxExternalLinksCrawler)
+        process.crawl(MaxExternalLinksCrawler)
+        process.crawl(SubdomainCrawler)
         process.start()
 
     def test_broken_links_internal(self):
@@ -52,7 +51,19 @@ class MyTestCase(unittest.TestCase):
                     self.assertEqual(len(line['external_links']), 5)
 
     def test_max_external_links(self):
-        pass
+        with open('output.json') as file:
+            for line in file:
+                line = json.loads(line)
+                if line['url'] == MaxExternalLinksCrawler.start_urls[0]:
+                    self.assertEqual(len(line['internal_links']), 1)
+                    self.assertEqual(len(line['external_links']), 13)
+
+    def test_subdomain_links(self):
+        with open('output.json') as file:
+            for line in file:
+                line = json.loads(line)
+                if line['url'] == SubdomainCrawler.start_urls[0]:
+                    self.assertEqual(len(line['subdomain_links']), 1)
 
     def test_repeated_external_links(self):
         pass
