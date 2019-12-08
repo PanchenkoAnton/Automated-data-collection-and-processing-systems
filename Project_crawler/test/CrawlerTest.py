@@ -6,7 +6,6 @@ import unittest
 from motor.motor_asyncio import AsyncIOMotorClient
 from scrapy.crawler import CrawlerProcess
 
-from Project_crawler.crawler import insert
 from Project_crawler.crawlers_for_testing import BrokenLinksInternalCrawler, \
     BrokenLinksExternalCrawler, MaxExternalLinksCrawler
 
