@@ -42,9 +42,9 @@ class Purumpurum(CrawlSpider):
         item = ScraperItem()
         item['url'] = response.url
         if response.status != 200:
-            item['data'] = json.dumps(str(response.body))
+            item['data'] =  response.body.decode('utf-8')
             return
-        item['data'] = json.dumps(str(response.body))
+        item['data'] = response.body.decode('utf-8')
         item['external_links'] = []
         item['internal_links'] = []
         item['subdomains_links'] = []
