@@ -2,11 +2,13 @@ from Project_crawler.crawler import Purumpurum
 
 
 class BrokenLinksInternalCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/broken_links_internal"]
 
 
 class BrokenLinksExternalCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/broken_links_external"]
 

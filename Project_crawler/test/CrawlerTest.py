@@ -11,11 +11,6 @@ from Project_crawler.crawlers_for_testing import BrokenLinksInternalCrawler, \
 
 
 class MyTestCase(unittest.TestCase):
-    consistency = {
-        'test_broken_links_internal': BrokenLinksInternalCrawler,
-        'test_broken_links_external': BrokenLinksExternalCrawler,
-        'test_max_external_links': MaxExternalLinksCrawler,
-    }
 
     @classmethod
     def setUpClass(cls):
