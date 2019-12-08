@@ -11,7 +11,7 @@ class HTMLParser(Parser):
         if filepath:
             with open(filepath, 'rb') as file:
                 self.bs = BeautifulSoup(file.read(), 'html.parser')
-        else:
+        if text:
             self.bs = BeautifulSoup(text, 'html.parser')
 
     def get_text(self):
