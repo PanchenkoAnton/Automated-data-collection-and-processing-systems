@@ -26,27 +26,32 @@ class SubdomainCrawler(Purumpurum):
 
 
 class RepeatedExternalLinksCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/page_with_external_links"]
 
 
 class RepeatedInternalLinksCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/repeated_internal_links"]
 
 
 class ExternalLinksToDisallowedCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = \
         ["https://crawler-test.com/links/external_links_to_disallwed_urls"]
 
 
 class NonStandardLinksCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/non_standard_links"]
 
 
 class WhitespaceInLinksCrawler(Purumpurum):
+    allowed_domains = ["crawler-test"]
     name = 'testcrawler'
     start_urls = ["https://crawler-test.com/links/whitespace_in_links"]
 
@@ -104,3 +109,27 @@ class URLWithForeignCharactersCrawler(Purumpurum):
 class ForeignCharacterDomainCrawler(Purumpurum):
     name = 'testcrawler'
     start_urls = ["http://www.søkbar.no/"]
+
+
+class BasicsSinglePageCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["Case1/first.html"]
+    allowed_domains = []
+
+
+class BasicsTwoPagesCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["Case2/first.html"]
+    allowed_domains = []
+
+
+class BasicsManyPagesCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["Case3/first.html"]
+    allowed_domains = []
+
+
+class BasicsLoopPagesCrawler(Purumpurum):
+    name = 'testcrawler'
+    start_urls = ["Case4/first.html"]
+    allowed_domains = []
