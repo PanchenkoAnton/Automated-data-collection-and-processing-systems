@@ -37,33 +37,24 @@ class MyTestCase(unittest.TestCase):
             'FEED_URI': 'output.json'
         })
         process.crawl(BrokenLinksInternalCrawler)
-        # process.crawl(BrokenLinksExternalCrawler)
+        process.crawl(BrokenLinksExternalCrawler)
         # process.crawl(MaxExternalLinksCrawler)
         process.start()
 
     def test_broken_links_internal(self):
-        test_page = None
         with open('output.json') as file:
             for line in file:
                 line = json.loads(line)
                 if line['url'] == BrokenLinksInternalCrawler.start_urls[0]:
-                    self.assertEqual(len(line['external_links']), 6)
-                # page = json.loads(line)
-                # page = line
-                # for key in page:
-                #     if "https://crawler-test.com/links/broken_links_internal" in key:
-                #         test_page = page[key]
-        # if not test_page:
-        #     self.fail(msg='Failed')
-        # links = test_page['links']
-        # self.assertEqual(test_page['links'], 1)
-
-
-        # a = self.db["https://crawler-test.com/links/broken_links_internal"]['internal_urls']
-        # self.assertEqual(self.broken_links_external_crawler.stats, 0)
+                    self.assertEqual(len(line['internal_links']), 6)
 
     def test_broken_links_external(self):
-        pass
+        with open('output.json') as file:
+            for line in file:
+                line = json.loads(line)
+                if line['url'] == BrokenLinksExternalCrawler.start_urls[0]:
+                    self.assertEqual(len(line['internal_links']), 1)
+                    self.assertEqual(len(line['external_links']), 5)
 
     def test_max_external_links(self):
         pass
