@@ -19,10 +19,6 @@ class MyTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        internal_urls = set()
-        external_urls = set()
-        subdomains_urls = set()
-        files_urls = set()
         if os.path.exists('output.json'):
             os.remove('output.json')
         process = CrawlerProcess({
@@ -40,40 +36,27 @@ class MyTestCase(unittest.TestCase):
             'FEED_FORMAT': 'jsonlines',
             'FEED_URI': 'output.json'
         })
-        # a = self.id()
-        # 'CrawlerTest.MyTestCase.test_broken_links_external'
-        # cls.broken_links_external_crawler = \
-        #     process.create_crawler(BrokenLinksExternalCrawler)
-        # process.crawl(cls.broken_links_external_crawler)
         process.crawl(BrokenLinksInternalCrawler)
         # process.crawl(BrokenLinksExternalCrawler)
         # process.crawl(MaxExternalLinksCrawler)
         process.start()
-        asyncio.set_event_loop(asyncio.new_event_loop())
-        loop = asyncio.get_event_loop()
-        db = AsyncIOMotorClient('localhost', 27017)['crawler']
-        cls.db = db
-        loop.run_until_complete(insert(db['Unique links'], {
-            'name': 'insert domain name',
-            'internal_urls': list(internal_urls),
-            'external_urls': list(external_urls),
-            'subdomain_urls': list(subdomains_urls),
-            'files_urls': list(files_urls)
-        }))
 
     def test_broken_links_internal(self):
         test_page = None
         with open('output.json') as file:
             for line in file:
-                page = json.loads(line)
+                line = json.loads(line)
+                if line['url'] == BrokenLinksInternalCrawler.start_urls[0]:
+                    self.assertEqual(len(line['external_links']), 6)
+                # page = json.loads(line)
                 # page = line
-                for key in page:
-                    if "https://crawler-test.com/links/broken_links_internal" in key:
-                        test_page = page[key]
-        if not test_page:
-            self.fail(msg='Failed')
-        links = test_page['links']
-        self.assertEqual(test_page['links'], 1)
+                # for key in page:
+                #     if "https://crawler-test.com/links/broken_links_internal" in key:
+                #         test_page = page[key]
+        # if not test_page:
+        #     self.fail(msg='Failed')
+        # links = test_page['links']
+        # self.assertEqual(test_page['links'], 1)
 
 
         # a = self.db["https://crawler-test.com/links/broken_links_internal"]['internal_urls']
