@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <title>Документы и ресурсы по исполнению</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Документы и ресурсы по исполнению</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.msu.ru/favicon.ico">
+<meta name="keywords" content="Филиал МГУ в Ташкенте, МГУ Ташкент, МГУ в Ташкенте, Московский государственный университет, МГУ, Ломоносов, обучение, учеба, студент, абитуриент, образование, наука, инновации">
+<meta name="description" content="Официальный сайт филиала МГУ имени М.В.Ломоносова в городе Ташкенте">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<link href="/css/kernel_main.css" type="text/css" rel="stylesheet">
+    <link href="/css/main.css" type="text/css" data-template-style="true" rel="stylesheet">
+<link href="/css/media.css" type="text/css" data-template-style="true" rel="stylesheet">
+<link href="/css/workers.css" type="text/css" data-template-style="true" rel="stylesheet">
+<link href="/css/select2.css" type="text/css" data-template-style="true" rel="stylesheet">
+<link href="/css/coolform.css" type="text/css" data-template-style="true" rel="stylesheet">
+
+
+<!-- jQuery, -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Fotorama -->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.5.2/fotorama.js"></script>-->
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=nuezc79ylbc8xjubt53er83p5q0t1a606tosqy31ih1j83mk'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<script src="/js/site.js" type="text/javascript"></script>
+<!--Metrika-->
+<script src="/js/yandexMetrika.js" type="text/javascript"></script>
+<noscript><div><img src="https://mc.yandex.ru/watch/39906540" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<script src="/js/googleAnalytics.js" type="text/javascript"></script>
+
+<meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="6w_UAlcR8M8pG_7l_fIkKoWMwqYZGpv8prZm1kwrlt11gfC2_dZH24aJFsM8pwvtNb01zojnHvSsw25ooYKxZg==">
+<title>Документы и ресурсы по исполнению</title></head>
+
+<body class="color-scheme--black-on-white font-size__item--item1">
+
+<div id="all-wrap" class="wrap">
+    <div class="wrap-content">
+
+        <!-- header -->
+        <div class="wrap-mobile-menu-btn">
+    <a href="javascript: void(0);" class="mobile-menu-btn"></a>
+</div>
+<div class="logo">
+    <a href="/">Филиал МГУ имени М.В.Ломоносова в городе Ташкенте</a>
+    <span>Основан в 2006 году</span>
+</div>
+<!-- header -->
+<div class="header">
+    <!-- header top -->
+
+    <div class="header-top">
+        <div class="header-special">
+            <a href="/main/vision?type=poor">
+                <span class="ico-special"></span>
+                Версия для слабовидящих
+            </a>
+        </div>
+    </div>
+    <!-- end header top -->
+    <!-- header bottom -->
+    <div class="header-bottom">
+        <ul class="nav">
+            <li class=""><a href="/main/page?id=210">График приема физических и юридических лиц</a></li>
+<li class="nav-item-parent"><a href="javascript: void(0);">Интерактивные службы</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="/schedule">Расписание занятий</a></li>
+        <li class=""><a href="/edplans">Учебные планы</a></li>
+        <li class=""><a href="/enrollee">Прием в филиал</a></li>
+        <li class=""><a href="/science">Научная деятельность</a></li>
+        <li class=""><a href="https://dip.e-edu.uz/" target="_blank">Сведения о получении диплома</a></li>
+        <li class=""><a href="/reception">Электронная приемная</a></li>
+        <li class=""><a href="https://my.gov.uz/ru/service/307" target="_blank">Электронное обращение на возврат документов</a></li>
+        <li class=""><a href="/resources"> Электронная библиотека </a></li>
+        <li class=""><a href="/main/page?id=211">Вакансии</a></li>
+    </ul></li>
+<li class=" nav-item-parent"><a href="javascript: void(0);" id = "msu-sites">Сайты МГУ</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="http://www.msu.ru" target="_blank">МГУ им. М.В.Ломоносова</a></li>
+        <li class=""><a href="http://www.math.msu.ru" target="_blank">Механико-математический факультет</a></li>
+        <li class=""><a href="http://www.intsys.msu.ru" target="_blank">Кафедра МаТИС</a></li>
+        <li class=""><a href="http://www.psy.msu.ru" target="_blank">Факультет Психологии</a></li>
+    </ul></li>
+<li class=" nav-item-parent"><a href="">Пресс-служба</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="/main/page?id=234">Интервью ректора</a></li>
+    </ul>
+</li>        </ul>
+    </div>
+    <!-- end header bottom -->
+</div>
+<!-- end header -->        <!-- end header -->
+
+        <!-- aside_left -->
+        <div class="aside_left" style="min-height: 141px;">
+    <!-- menu left  -->
+    <ul class="menu-left">
+                    <li><a href="/" >Главная страница</a></li>
+                    <li><a href="/leadership" >Руководство филиала</a></li>
+                    <li><a href="/mathfaculty" >Факультет ПМиИ</a></li>
+                    <li><a href="/psyfaculty" >Факультет психологии</a></li>
+                    <li><a href="/education" >Образование</a></li>
+                    <li><a href="/enrollee" >Информация для поступающих</a></li>
+                    <li><a href="/courses" >Подготовительные курсы</a></li>
+                    <li><a href="/school" >Работа со школьниками</a></li>
+                    <li><a href="/struct" >Цели филиала</a></li>
+                    <li><a href="/schedule" >Расписание занятий</a></li>
+                    <li><a href="/educational" >Учебный отдел</a></li>
+                    <li><a href="/science" >Научная деятельность</a></li>
+                    <li><a href="/edplans" >Учебные планы</a></li>
+                    <li><a href="/resources" >Информационные ресурсы</a></li>
+                    <li><a href="/union" >Союз молодежи Узбекистана</a></li>
+                    <li><a href="/contacts" >Контакты</a></li>
+            </ul>
+    <!-- end menu left -->
+            <!-- Person pane -->
+        <div class="reson-pane">
+            <div class="reson-pane-img">
+                <img alt="Ректор МГУ академик Виктор Антонович Садовничий" src="/files/shared_files/rektor.png">
+            </div>
+            <span class="reson-pane-post" align="center">Ректор МГУ академик</span> <span class="reson-pane-name" align="center"><b>Виктор Антонович Садовничий</b></span>	<br>
+        </div>
+        <div class="reson-pane">
+            <div class="reson-pane-img">
+                <img alt="Кудрявцев" src="/files/shared_files/kudr.jpg">
+            </div>
+            <span class="reson-pane-post" align="center">Руководитель филиала МГУ в Ташкенте</span> <span class="reson-pane-name" align="center"><b>Валерий Борисович Кудрявцев</b></span>	<br>
+        </div>
+        <!-- end Person pane -->
+    
+
+    <div class="article-pane">
+        <!--'start_frame_cache_udAj76'--></div>
+    <!-- end article pane -->
+
+
+</div>
+
+<!--<li><a href="/faculty">Факультеты</a></li>
+<li><a href="/leadership">Руководство филиала</a></li>
+<li><a href="/enrollee">Информация для поступающих</a></li>
+<li><a href="/courses">Подготовительные курсы</a></li>
+<li><a href="/school">Работа со школьниками</a></li>
+<li><a href="/struct">Цели филиала</a></li>
+<li><a href="/schedule">Расписание занятий</a></li>
+<li><a href="/educational">Учебный отдел</a></li>
+<li><a href="/science">Научная деятельность</a></li>
+<li><a href="/edplans">Учебные планы</a></li>
+<li><a href="/resources">Информационные ресурсы</a></li>
+<li><a href="/union">Союз молодежи Узбекистана</a></li>
+<li><a href="/contacts">Контакты</a></li>-->
+        <!-- end aside_left -->
+        <div class="section_main" style="width: 99%;">
+            <div class="msu-content">
+                
+    <h1 class="event-title">Документы и ресурсы по исполнению</h1>
+    <br/>
+    <p>Договора ЭБС:</p>
+<ul>
+<li><a href="../files/page_files/2019/03/laug93qlubjyy4bfgfqcyzsz6.pdf">Договор ЭБС ЛАНЬ&nbsp;</a></li>
+<li><a href="../files/page_files/2019/03/uw3rogbhgxbnwaj21nsjr9riy.pdf">Договор ЭБД "Артефакт"</a></li>
+<li><a href="../files/page_files/2019/03/a97uxcmtb19guo7wp8oiqi53a.PDF">Договор ЭБС "ЮРАЙТ"</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Договора о сотрудничестве с организациями:</p>
+<ul>
+<li><a href="../files/page_files/2019/03/62j2anp4qyuki8wsqeztqkrzm.PDF">Договора о сотрудничестве (академические лицеи, профессиональные колледжи,&nbsp;Высшие учебные курсы&nbsp;при Генеральной&nbsp;прокуратуре, Ассоциация психологов Узбекистана, Городской психоневрологический диспансер, ООО "ЛУКОЙЛ", Национальный университет Узбекистана, Центр подготовки кинологов и служебно розыскных собак при МВД РУз и пр.)</a></li>
+<li><a href="../files/page_files/2019/03/3zt4ag4iw7zvs2iewyru6i2ry.pdf">Договор с Международной исламской академией</a></li>
+<li><a href="../files/page_files/2019/03/be6iztd5qjxwq7qyhfudjr7vs.pdf">Договор с Ферганским государственным университетом</a></li>
+<li><a href="../files/page_files/2019/03/r3dtgm9j3qkkmvtdemm6ir9zr.pdf">Договор с&nbsp;Научно-практическим исследовательским центром&nbsp;&laquo;Оила (Семья)&raquo; при Кабинете Министров Республики Узбекистан</a></li>
+<li><a href="../files/page_files/2019/03/ghpjko2lx2q8xu7ovfknl9628.pdf">Договор с Академией государственного&nbsp;управления при Президенте Республики Узбекистан</a></li>
+<li><a href="../files/page_files/2019/03/h7yz35hpf4dsfxmco5y9b5osg.pdf">Меморандум с UZINFOCOM</a></li>
+<li><a href="../files/page_files/2019/03/radg2v9f56np57lyv1whs453j.pdf">Сотрудничество с Хокимиятом (мэрия) города Ахангаран</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Распорядительные документы:</p>
+<ul>
+<li><a href="../files/page_files/2019/03/9xrkh7jicorlxcnn8jvif9ep6.pdf">Приказы о командировании ППС в город Ташкент (часть 1)</a></li>
+<li><a href="../files/page_files/2019/03/farxgtlpx8n1tm2t5yuobp64q.pdf">Приказы о зачислении студентов магистратуры</a></li>
+<li><a href="../files/page_files/2019/03/puk23vp9ad4o2o6qwbxuu7rrb.pdf">Приказы о стоимости обучения&nbsp;</a></li>
+</ul>
+<p>Разные документы:</p>
+<ul>
+<li>Справки ИКТ <a href="http://msu.uz/files/page_files/2019/04/6a3vjo67s3ub1vdur63an1tyb.rar">(часть 1)</a></li>
+<li>Потрфолио студентов&nbsp;<a href="../files/page_files/2019/04/8vs6vq8slsu3s38k2jxzwcpdt.rar">(часть 1)</a></li>
+<li>Данные о ППС <a href="../files/page_files/2019/04/n6wrenpcwdh5ejuzdpaeh5n9i.rar">(часть 1)</a></li>
+<li>Нормативные документы <a href="http://msu.uz/files/page_files/2019/04/ft33fporfb1996p5gdfip6l85.rar">(часть 1)</a></li>
+<li>Договора ППС Москва (<a href="../files/page_files/2019/04/52s2zgv5z9bip3x7h22k58n8h.PDF">часть 1</a>), (<a href="../files/page_files/2019/04/uwrqft2kwb728rn451z4nh8pb.PDF">часть 2</a>)</li>
+<li>Договора ППС <a href="../files/page_files/2019/04/x6swcj63r3phcbrlgpjx1a8lq.PDF">совместители</a></li>
+<li>Договора ППС <a href="../files/page_files/2019/04/j8fa43kgmncqe3qmw9pptaa2x.PDF">штат</a></li>
+</ul>
+<p>&nbsp;</p>
+<div align="center">
+<table style="width: 682px;" border="1" width="671" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 91.3542px;">
+<p align="center"><strong>Папка №</strong></p>
+</td>
+<td style="width: 351.354px;">
+<p align="center"><strong>Описание файлов</strong></p>
+</td>
+<td style="width: 104.688px;">
+<p align="center"><strong>ПМиИ</strong></p>
+</td>
+<td style="width: 125.799px;">
+<p align="center"><strong>Психология</strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 1.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Основная образовательная программа и приложение, учебный план, реестр магистерских дисциплин, рабочие программа учебных дисциплин, практик, междисциплинарного экзамена, учебные графики, фонд оценочных средств.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/w5ibsdw2bwq5bnattf2kkxzqq.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/kxayeuna4as3f7ewy7s4qmdy6.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 2.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Расписание занятий.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/i686b28ufyx39f3q73jjcuefz.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/dt9881mf2933oh11g4xtla48l.rar"><span style="background-color: #ffffff;">скачать</span></a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 5.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Экзаменационные ведомости, зачётные книжки.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/lo1uck7s1j8dgkgh74jul653t.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/9amm7wf421cp59sndhhy44ozg.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 6.</p>
+<p>&nbsp;</p>
+</td>
+<td style="width: 351.354px;">
+<p>Портфолио студентов (сертификаты, статьи и тд.)</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p>скачать</p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/2grebta8p58q159d6uiediosc.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 7.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Отчеты по практикам, учебным курсам.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/cy1ycb2pprxocdft6e445rrht.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p>скачать</p>
+<p>(<a href="../files/page_files/2019/04/z8iogyjdk91pcjlmh5ih6ltgz.rar">Ч1</a>, <a href="../files/page_files/2019/04/balhgilgqkyvsatahhx9osck6.rar">Ч2</a>, <a href="../files/page_files/2019/04/kwcs2ib96rtihqfsk6e2rab73.rar">Ч3</a>, <a href="../files/page_files/2019/04/bn8lt1mkjlfkn5n1wh7zo4xfp.rar">Ч4</a>)</p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 12.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Положение "О порядке проведения итоговой аттестации"</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/vi1ohewqeegnretyqltawrbez.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/6prc6bcm8dgv848d55l3sfaiv.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 13.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Договора с организациями о проведении практик.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/kqznrgnsphrn2cct5wjxpu9hf.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/r22dxssbmxo8lxhxswddw3d2t.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 15.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Сведения о профессорско-преподавательском составе: дипломы о высшем образовании; о присвоении степени, званий; трудовые книжки, трудовые договора, справки ИКТ, штатное расписание, справки о кадровом обеспечении, научно-педагогических работниках-практиках, научном руководителе магистерской программы, о квалификации руководящих и научно-педагогических работниках образовательной организации, положение о нормах времени Филиал МГУ в городе Ташкенте, об установлении нормативов контактной работы.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/em4silcurnwae6p6f4518pxxl.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/qywaprx3mkhx7cny36otwcslg.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 16.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Индивидуальные планы научно-педагогических работников.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/lmsi7uesypie2er1us4sr6lvw.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/5nfjcc4vryvux9zd67g68tme2.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 17.&nbsp;</p>
+</td>
+<td style="width: 351.354px;">
+<p>Договора с электронно-библиотечными системами, пароли студентов к ЭБС и <a href="https://lk.msu.ru/">https://lk.msu.ru/</a></p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/zja9kapgowtwfknbu332x3ks7.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/lgicajis836s62i4gk7t2isnq.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 18.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Кадастровое дело на объект недвижимости, план-схема, договор безвозмездного пользования, лицензионное соглашение с лабораторией Касперского, заключение органов пожарного надзора, санитарно-эпидемиологического надзора, справка о материально-техническом оснащении.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/uichj7hlskjryd9ycbjgpdn4t.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/7h3il3yw9fotpgsk6imfp439i.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка № 24.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Об установлении нормативов контактной работы обучающегося с преподавателем, Порядок организации образовательного процесса при сочетании различных форм обучения, используя сетевую форму, положение о порядке ИА для не аккредитованных программ, положение о нормах времени,&nbsp; положение о порядке проведения ГИА в МГУ, положение о практиках, положение о применении электронного обучения, положение о промежуточной аттестации, положение о текущем контроле успеваемости, положение об архиве, порядок зачета результатов освоения обучающимися в других вузах, порядок зачисления экстернов, порядок индивидуального учета результатов освоения образовательных программ, порядок обучения инвалидов, порядок обучения по индивидуальному учебному плану, ускоренное обучение, порядок утверждения образовательных программ, порядок формирования и освоения элективных дисциплин, Положение о порядке проведения практики студентов факультета психологии.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/2dzg2n2sgy3p2curl6suo34vg.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/r7gsbhbxzk4c791nftnoik5rt.rar">скачать</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91.3542px;">
+<p>Папка №25.</p>
+</td>
+<td style="width: 351.354px;">
+<p>Приказ о создании кафедр, приказы о зачислении студентов магистратуры, приказы о командировании ППС в городе Ташкент.</p>
+</td>
+<td style="text-align: center; width: 104.688px;">
+<p><a href="../files/page_files/2019/04/654hopadoy6yw5ftgj4v8su6w.rar">скачать</a></p>
+</td>
+<td style="text-align: center; width: 125.799px;">
+<p><a href="../files/page_files/2019/04/z2r4d8hhl1gnumh4a12gkeqr7.rar">скачать</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>    
+
+
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <!-- Mobile menu -->
+        <div class="wrap-mobile-menu-scroll" style="height: 660px; display: none;">
+    <div id="mobile-menu-scroll" class="mobile-menu-scroll" style="height: 660px;">
+        <div class="mobile-menu-scroll-content">
+            <div class="mobile-menu-close-btn-pane"><a href="javascript: void(0);" class="mobile-menu-close-btn">Закрыть</a></div>
+            <ul class="mobile-menu">
+                                    <li><a href="/" >Главная страница</a></li>
+                                    <li><a href="/leadership" >Руководство филиала</a></li>
+                                    <li><a href="/mathfaculty" >Факультет ПМиИ</a></li>
+                                    <li><a href="/psyfaculty" >Факультет психологии</a></li>
+                                    <li><a href="/education" >Образование</a></li>
+                                    <li><a href="/enrollee" >Информация для поступающих</a></li>
+                                    <li><a href="/courses" >Подготовительные курсы</a></li>
+                                    <li><a href="/school" >Работа со школьниками</a></li>
+                                    <li><a href="/struct" >Цели филиала</a></li>
+                                    <li><a href="/schedule" >Расписание занятий</a></li>
+                                    <li><a href="/educational" >Учебный отдел</a></li>
+                                    <li><a href="/science" >Научная деятельность</a></li>
+                                    <li><a href="/edplans" >Учебные планы</a></li>
+                                    <li><a href="/resources" >Информационные ресурсы</a></li>
+                                    <li><a href="/union" >Союз молодежи Узбекистана</a></li>
+                                    <li><a href="/contacts" >Контакты</a></li>
+                				<li><a href="/main/allevents?filter=news">Новости</a></li>
+				<li><a href="/main/allevents?filter=ad">Объявления</a></li>
+				<li><a href="/main/allevents?filter=calendar">Конференции</a></li>
+            </ul>    
+            <ul class="mobile-menu">
+                <li class=""><a href="/main/page?id=210">График приема физических и юридических лиц</a></li>
+<li class="nav-item-parent"><a href="javascript: void(0);">Интерактивные службы</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="/schedule">Расписание занятий</a></li>
+        <li class=""><a href="/edplans">Учебные планы</a></li>
+        <li class=""><a href="/enrollee">Прием в филиал</a></li>
+        <li class=""><a href="/science">Научная деятельность</a></li>
+        <li class=""><a href="https://dip.e-edu.uz/" target="_blank">Сведения о получении диплома</a></li>
+        <li class=""><a href="/reception">Электронная приемная</a></li>
+        <li class=""><a href="https://my.gov.uz/ru/service/307" target="_blank">Электронное обращение на возврат документов</a></li>
+        <li class=""><a href="/resources"> Электронная библиотека </a></li>
+        <li class=""><a href="/main/page?id=211">Вакансии</a></li>
+    </ul></li>
+<li class=" nav-item-parent"><a href="javascript: void(0);" id = "msu-sites">Сайты МГУ</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="http://www.msu.ru" target="_blank">МГУ им. М.В.Ломоносова</a></li>
+        <li class=""><a href="http://www.math.msu.ru" target="_blank">Механико-математический факультет</a></li>
+        <li class=""><a href="http://www.intsys.msu.ru" target="_blank">Кафедра МаТИС</a></li>
+        <li class=""><a href="http://www.psy.msu.ru" target="_blank">Факультет Психологии</a></li>
+    </ul></li>
+<li class=" nav-item-parent"><a href="">Пресс-служба</a>
+    <ul class="nav-level-1">
+        <li class=""><a href="/main/page?id=234">Интервью ректора</a></li>
+    </ul>
+</li>            </ul>
+        </div>
+    </div>
+</div>    <!-- endMobile menu -->
+
+    <!-- footer -->
+        <div class="footer">
+            <ul class="nav-footer">
+            <li><a href="http://www.msu.ru/"><img src="/files/shared_files/link-msu"></a></li>
+            <li><a href="http://www.math.msu.ru/"><img src="/files/shared_files/link-mex-mat"></a></li>
+            <li><a href="http://www.intsys.msu.ru/"><img src = "/files/shared_files/link-matis"></a></li>
+            <li><a href="http://www.psy.msu.ru/"><img src="/files/shared_files/link-psy"></a></li>
+        </ul>
+        <div class="copyright">
+        Copyright © 2006–2018 Филиал МГУ имени М.В.Ломоносова<br>
+        При перепечатке текстовой информации и фотографий ссылка на сайт обязательна<br>
+    </div>
+    <div id="bx-composite-banner"></div>
+	<div id = "yandex-metrika">
+    <!-- Yandex.Metrika informer --> <a href="https://metrika.yandex.ru/stat/?id=39906540&amp;from=informer" target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/39906540/3_0_FFFFFFFF_EFEFEFFF_0_pageviews" style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="39906540" data-lang="ru" /></a> <!-- /Yandex.Metrika informer -->
+	</div>
+</div>    <!-- end footer -->
+</body>
+</html>
+

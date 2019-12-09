@@ -1,0 +1,9 @@
+Server: nginx/1.6.0
+Date: Mon, 02 Dec 2019 00:23:57 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: Accept-Encoding
+X-Powered-By: PHP/5.6.23
+Pragma: no-cache
+Cache-Control: no-cache, must-revalidate
+Expires: Mon, 26 Jul 1997 05:00:00 GMT
+Content-Encoding: gzip
