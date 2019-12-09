@@ -21,9 +21,12 @@ async def do_find_one():
     parser = HTMLParser(text=document['data'])
     text = parser.get_text()
 
+    tmp_text = 'Здравствуйте, как у вас дела? Сегодня чудесная погодка у нас ' \
+               'выдалась'
+
     nlp = spacy.load('ru2')
-    nlp.add_pipe(nlp.create_pipe('sentecizer'), first=True)
-    doc_text = nlp(text)
+    nlp.add_pipe(nlp.create_pipe('sentencizer'), first=True)
+    doc_text = nlp(tmp_text)
     for s in doc_text.sents:
         print(list(['lemma "{}" from text "{}"'.format(t.lemma_, t.text)
                     for t in s]))
