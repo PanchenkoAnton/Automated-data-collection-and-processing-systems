@@ -1,9 +1,0 @@
-Server: nginx/1.4.7
-Date: Mon, 02 Dec 2019 01:27:01 GMT
-Content-Type: text/html; charset=utf-8
-X-Powered-By: PHP/7.1.12
-Expires: Fri, 07 Jun 1974 04:00:00 GMT
-X-Bitrix-Composite: Cache (200)
-Content-Encoding: gzip
-Access-Control-Allow-Origin: *
-X-Content-Type-Options: nosniff
