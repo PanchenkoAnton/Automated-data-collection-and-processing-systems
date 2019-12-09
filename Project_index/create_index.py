@@ -1,7 +1,9 @@
+import spacy
 import asyncio
 import string
 
 from motor.motor_asyncio import AsyncIOMotorClient
+import nltk
 from nltk import FreqDist
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -11,11 +13,21 @@ from Project_parser.parsers.HTMLParser import HTMLParser
 
 
 async def do_find_one():
-    db = AsyncIOMotorClient('localhost', 27000)['crawler']
+    nltk.download('stopwords')
+    nltk.download('wordnet')
+    db = AsyncIOMotorClient('localhost', 27017)['crawler']
     collection_msu = db.msu
     document = await collection_msu.find_one({"url": "https://www.msu.ru/"})
     parser = HTMLParser(text=document['data'])
     text = parser.get_text()
+
+    nlp = spacy.load('ru2')
+    nlp.add_pipe(nlp.create_pipe('sentecizer'), first=True)
+    doc_text = nlp(text)
+    for s in doc_text.sents:
+        print(list(['lemma "{}" from text "{}"'.format(t.lemma_, t.text)
+                    for t in s]))
+
     text = text.lower()
 
     tokenizer = RegexpTokenizer(r'\w+')
