@@ -17,8 +17,8 @@ class IndexTest(unittest.TestCase):
         test_tf = {}
         self.assertEqual(index.global_tf, test_tf)
 
-    def test_one_doc_only_stopwors(self):
-        index = Index('test_one_doc_only_stopwors')
+    def test_one_doc_only_stopwords(self):
+        index = Index('test_one_doc_only_stopwords')
         test_tf = {}
         self.assertEqual(index.global_tf, test_tf)
 
@@ -27,8 +27,8 @@ class IndexTest(unittest.TestCase):
         test_tf = {}
         self.assertEqual(index.global_tf, test_tf)
 
-    def test_one_doc_stopwors_and_punctuation(self):
-        index = Index('test_one_doc_stopwors_and_punctuation')
+    def test_one_doc_stopwords_and_punctuation(self):
+        index = Index('test_one_doc_stopwords_and_punctuation')
         test_tf = {}
         self.assertEqual(index.global_tf, test_tf)
 
@@ -77,8 +77,8 @@ class IndexTest(unittest.TestCase):
         test_tf = {'word1': [(5, 'link1'), (3, 'link2')], 'word2': [(3, 'link1'), (5, 'link2')]}
         self.assertEqual(index.global_tf, test_tf)
 
-    def test_many_docs_repeated_words_stopwors_and_punctuation(self):
-        index = Index('test_many_docs_repeated_words_stopwors_and_punctuation')
+    def test_many_docs_repeated_words_stopwords_and_punctuation(self):
+        index = Index('test_many_docs_repeated_words_stopwords_and_punctuation')
         test_tf = {'word1': [(5, 'link1'), (3, 'link2')], 'word2': [(3, 'link1'), (5, 'link2')]}
         self.assertEqual(index.global_tf, test_tf)
 

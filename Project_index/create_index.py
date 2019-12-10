@@ -11,8 +11,8 @@ from Project_parser.parsers.HTMLParser import HTMLParser
 
 class Index:
 
-    def __init__(self, collection, db_host='localhost', db_port=27017):
-        self.db = AsyncIOMotorClient(db_host, db_port)['crawler']
+    def __init__(self, collection, db='crawler', db_host='localhost', db_port=27017):
+        self.db = AsyncIOMotorClient(db_host, db_port)[db]
         self.collection = collection
         self.create_index()
 
@@ -25,7 +25,6 @@ class Index:
         return await self.db[self.collection].count_documents({})
 
     async def create(self):
-        input()
         self.global_tf = {}
         async for document in self.db[self.collection].find():
             self.global_tf = self.merge_tf(self.global_tf, self.make_document_tf(document))
