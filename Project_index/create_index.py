@@ -14,6 +14,7 @@ class Index:
     def __init__(self, collection, db='crawler', db_host='localhost', db_port=27017):
         self.db = AsyncIOMotorClient(db_host, db_port)[db]
         self.collection = collection
+        self.global_tf = {}
         self.create_index()
 
     def create_index(self):
@@ -69,7 +70,17 @@ class Index:
                 global_tf[key] = local_tf[key]
         return global_tf
 
+    def write_index_to_db(self):
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        self.loop.run_until_complete(self.insert(
+            self.db['index'],
+            {"name": self.collection,
+             "index": self.global_tf}
+        ))
+        self.loop.close()
+
 
 if __name__ == "__main__":
     index = Index('msu', db_port=27000)
+    index.write_index_to_db()
     print(index.global_tf)
