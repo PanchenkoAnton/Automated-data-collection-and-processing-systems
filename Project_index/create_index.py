@@ -11,11 +11,22 @@ from Project_parser.parsers.HTMLParser import HTMLParser
 
 class Index:
 
-    def __init__(self, collection, db='crawler', db_host='localhost', db_port=27017):
+    def __init__(self, collection, load=False, db='crawler', db_host='localhost', db_port=27017):
         self.db = AsyncIOMotorClient(db_host, db_port)[db]
         self.collection = collection
+        if not load:
+            self.global_tf = {}
+            self.create_index()
+
+    def load_index(self):
+        self.loop = asyncio.get_event_loop()
+        self.loop.run_until_complete(self.create())
+
+    async def load(self):
         self.global_tf = {}
-        self.create_index()
+        async for document in self.db[self.collection].find():
+            if document['name'] == self.collection:
+                self.global_tf = document['index']
 
     def create_index(self):
         self.loop = asyncio.get_event_loop()
