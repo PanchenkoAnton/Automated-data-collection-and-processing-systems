@@ -23,6 +23,10 @@ class GlobalCrawlerStats:
 
         self.stats = {"count": 0, "statuses": {str(200): [0]}}
 
+        self.total_links = 0
+
+        self.broken_links = 0
+
     def get_domain(self, link):
         return tldextract.extract(link).domain
 
@@ -38,9 +42,16 @@ class GlobalCrawlerStats:
         self.loop.run_until_complete(self.insert(
             self.db['Unique links'],
             {"name": self.name,
+             "internal_urls": list(self.internal_urls),
              "external_urls": list(self.external_urls),
              "subdomains_urls": list(self.subdomains_urls),
              "files_urls": list(self.files_urls),
-             "code_stats": dict((k, [i for i in v[1]]) for k, v in self.stats['statuses'].items())}
+             "code_stats": dict((k, [i for i in v[1]]) for k, v in self.stats['statuses'].items()),
+             "total_pages" : self.stats['count'],
+             "internal_url_number": len(list(self.internal_urls)),
+             "external_urls_number": len(list(self.external_urls)),
+             "total_links": self.total_links,
+             "broken_links": self.broken_links
+             }
         ))
         self.loop.close()

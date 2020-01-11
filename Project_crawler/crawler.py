@@ -21,11 +21,13 @@ class Purumpurum(CrawlSpider):
         crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
         return spider
 
+    handle_httpstatus_all = True
+
     name = "purumpurum"
 
     allowed_domains = ["msu"]
 
-    start_urls = ["https://msu.ru/"]
+    start_urls = ["https://www.msu.ru/en/sitemap.html"]
 
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
@@ -37,20 +39,29 @@ class Purumpurum(CrawlSpider):
         for url in self.start_urls:
             yield scrapy.Request(url, callback=self.parse, dont_filter=True)
 
+    def response(self, response):
+        try:
+            response = response.body.decode('utf-8')
+        except Exception:
+            response = response.body.decode('latin-1')
+        return response
+
     def parse(self, response):
         self.statistics(response.url, response.status)
         item = ScraperItem()
         item['url'] = response.url
         if response.status != 200:
-            item['data'] =  response.body.decode('utf-8')
+            item['data'] = self.response(response)
             return
-        item['data'] = response.body.decode('utf-8')
+        item['data'] = self.response(response)
         item['external_links'] = []
         item['internal_links'] = []
         item['subdomains_links'] = []
         item['files_links'] = []
         try:
-            for link in LinkExtractor().extract_links(response):
+            links = LinkExtractor().extract_links(response)
+            self.global_stats.total_links += len(links)
+            for link in links:
                 for allowed_domain in self.allowed_domains:
 
                     if self.global_stats.compare_domains(allowed_domain, link.url):
@@ -84,6 +95,7 @@ class Purumpurum(CrawlSpider):
         if status == '200':
             self.global_stats.stats['statuses'][status][0] += 1
             return
+        self.global_stats.broken_links += 1
         if status in self.global_stats.stats['statuses']:
             self.global_stats.stats['statuses'][status][0] += 1
             self.global_stats.stats['statuses'][status][1].add(url)
@@ -103,14 +115,15 @@ if __name__ == "__main__":
                       ' like Gecko) Chrome/74.0.3729.157 Safari/537.36',
         'HTTPCACHE_ENABLED': True,
         'AUTOTHROTTLE_ENABLED': True,
-        'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
+        #'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
         'HTTPERROR_ALLOW_ALL': True,
         'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
         'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
         'CONCURRENT_REQUESTS': 33,
         'LOG_LEVEL': 'INFO',
-        'FEED_URI': "output.json",
-        'FEED_FORMAT': 'json'
+        'REDIRECT_ENABLED': False,
+        #'FEED_URI': "output.json",
+        #'FEED_FORMAT': 'json'
 
     })
     process.crawl(Purumpurum)
