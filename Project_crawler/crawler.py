@@ -135,8 +135,14 @@ if __name__ == "__main__":
     process = CrawlerProcess({
         'HTTPERROR_ALLOW_ALL': True,
         'DOWNLOAD_DELAY': 0.25,
-        'REDIRECT_ENABLED': False,
+        'REDIRECT_ENABLED': True,
         'LOG_LEVEL': 'INFO',
+        'DOWNLOADER_MIDDLEWARES':
+            {
+                "scrapy.downloadermiddlewares.retry.RetryMiddleware": 503
+            },
+        'RETRY_ENABLED': True,
+        'RETRY_TIMES': 1,
         # 'FEED_URI': "output.json",
         # 'FEED_FORMAT': 'json'
 
