@@ -48,7 +48,9 @@ class Purumpurum(CrawlSpider):
         return response
 
     def parse(self, response):
-        if response.url in self.global_stats.internal_urls or response.url in self.global_stats.external_urls or response.url in self.global_stats.files_urls:
+        if response.url in self.global_stats.internal_urls \
+                or response.url in self.global_stats.external_urls \
+                or response.url in self.global_stats.files_urls:
             return
         self.statistics(response.url, response.status)
         item = ScraperItem()
