@@ -11,7 +11,8 @@ from Project_parser.parsers.HTMLParser import HTMLParser
 
 class Index:
 
-    def __init__(self, collection, load=False, db='crawler', db_host='localhost', db_port=27017):
+    def __init__(self, collection, load=False, db='crawler',
+                 db_host='localhost', db_port=27017):
         self.db = AsyncIOMotorClient(db_host, db_port)[db]
         self.collection = collection
         if not load:
@@ -92,6 +93,6 @@ class Index:
 
 
 if __name__ == "__main__":
-    index = Index('msu', db_port=27000)
+    index = Index('msu', db_port=27017)
     index.write_index_to_db()
     print(index.global_tf)

@@ -27,7 +27,7 @@ class Purumpurum(CrawlSpider):
 
     allowed_domains = ["msu"]
 
-    start_urls = ["https://www.msu.ru/en/sitemap.html"]
+    start_urls = ["https://www.msu.ru/"]
 
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
