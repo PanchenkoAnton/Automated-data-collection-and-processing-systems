@@ -7,7 +7,7 @@ import tldextract
 from scrapy import signals
 from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import Rule, CrawlSpider
+from scrapy.spiders import Rule, CrawlSpider, Spider
 
 from Project_crawler.GlobalCrawlerStats import GlobalCrawlerStats
 from Project_crawler.scraper_item import ScraperItem
@@ -25,9 +25,10 @@ class Purumpurum(CrawlSpider):
 
     name = "purumpurum"
 
-    allowed_domains = ["msu"]
-
-    start_urls = ["https://www.msu.ru/"]
+    # allowed_domains = ["msu"]
+    # start_urls = ["https://www.msu.ru/"]
+    allowed_domains = ["spbu"]
+    start_urls = ["https://spbu.ru/"]
 
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
@@ -110,20 +111,30 @@ class Purumpurum(CrawlSpider):
 
 
 if __name__ == "__main__":
+    # process = CrawlerProcess({
+    #     'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,'
+    #                   ' like Gecko) Chrome/74.0.3729.157 Safari/537.36',
+    #     'HTTPCACHE_ENABLED': True,
+    #     'AUTOTHROTTLE_ENABLED': True,
+    #     #'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
+    #     'HTTPERROR_ALLOW_ALL': True,
+    #     'AUTOTHROTTLE_TARGET_CONCURRENCY': 1.0,
+    #     'DOWNLOAD_DELAY': 3,
+    #     'CONCURRENT_REQUESTS_PER_DOMAIN': 1,
+    #     'CONCURRENT_REQUESTS': 1,
+    #     'LOG_LEVEL': 'INFO',
+    #     'REDIRECT_ENABLED': False,
+    #     #'FEED_URI': "output.json",
+    #     #'FEED_FORMAT': 'json'
+    #
+    # })
     process = CrawlerProcess({
-        'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,'
-                      ' like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-        'HTTPCACHE_ENABLED': True,
-        'AUTOTHROTTLE_ENABLED': True,
-        #'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
         'HTTPERROR_ALLOW_ALL': True,
-        'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
-        'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
-        'CONCURRENT_REQUESTS': 33,
-        'LOG_LEVEL': 'INFO',
+        'DOWNLOAD_DELAY': 0.25,
         'REDIRECT_ENABLED': False,
-        #'FEED_URI': "output.json",
-        #'FEED_FORMAT': 'json'
+        'LOG_LEVEL': 'INFO',
+        # 'FEED_URI': "output.json",
+        # 'FEED_FORMAT': 'json'
 
     })
     process.crawl(Purumpurum)
