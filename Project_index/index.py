@@ -86,6 +86,7 @@ class InvertedIndex:
         #         pass
         #     else:
         #         tf[token] =
+        tokens = [token.lower() for token in tokens]
         tmp_text = ' '.join(tokens)
         doc_text = nlp(tmp_text)
         lemmas = []
@@ -93,7 +94,7 @@ class InvertedIndex:
             lemma = s.lemma_
             if lemma not in set(stopwords.words('russian')) \
                     and lemma not in set(stopwords.words('english')) \
-                    and ((len(lemma) > 1) or (lemma == 'Я' or lemma == 'я')):
+                    and len(lemma) > 1:
                 lemmas.append(lemma)
         freq = FreqDist(lemmas)
         for k, v in freq.most_common():
