@@ -32,7 +32,8 @@ class Purumpurum(CrawlSpider):
 
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
-    rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
+    rules = (Rule(LinkExtractor(allow=()), callback='start_requests',
+                  follow=True),)
 
     collection = global_stats.db[global_stats.name]
 
@@ -48,51 +49,60 @@ class Purumpurum(CrawlSpider):
         return response
 
     def parse(self, response):
-        if response.url in self.global_stats.internal_urls \
-                or response.url in self.global_stats.external_urls \
-                or response.url in self.global_stats.files_urls:
-            return
-        self.statistics(response.url, response.status)
-        item = ScraperItem()
-        item['url'] = response.url
-        if response.status != 200:
+        if response.url in self.global_stats.internal_urls:
+            pass
+            # if response.url != 'https://spbu.ru':
+            #     self.GLOBAL_COUNTER += 1
+            #     print(self.GLOBAL_COUNTER)
+            # or response.url in self.global_stats.external_urls:
+            # or response.url in self.global_stats.files_urls:
+            # return
+        else:
+            self.global_stats.internal_urls.add(response.url)
+            # self.GLOBAL_COUNTER += 1
+            # print(self.GLOBAL_COUNTER)
+            self.statistics(response.url, response.status)
+            item = ScraperItem()
+            item['url'] = response.url
+            if response.status != 200:
+                item['data'] = self.response(response)
+                return
             item['data'] = self.response(response)
-            return
-        item['data'] = self.response(response)
-        item['external_links'] = []
-        item['internal_links'] = []
-        item['subdomains_links'] = []
-        item['files_links'] = []
-        try:
-            links = LinkExtractor().extract_links(response)
-            self.global_stats.total_links += len(links)
-            for link in links:
-                for allowed_domain in self.allowed_domains:
+            item['external_links'] = []
+            item['internal_links'] = []
+            item['subdomains_links'] = []
+            item['files_links'] = []
+            try:
+                links = LinkExtractor().extract_links(response)
+                self.global_stats.total_links += len(links)
+                for link in links:
+                    for allowed_domain in self.allowed_domains:
 
-                    if self.global_stats.compare_domains(allowed_domain, link.url):
+                        if self.global_stats.compare_domains(allowed_domain, link.url):
 
-                        if tldextract.extract(link.url).subdomain and tldextract.extract(
-                                link.url).subdomain != 'www':
-                            item['subdomains_links'].append(link.url)
-                            self.global_stats.subdomains_urls.add(link.url)
-                            continue
+                            if tldextract.extract(link.url).subdomain and tldextract.extract(
+                                    link.url).subdomain != 'www':
+                                item['subdomains_links'].append(link.url)
+                                self.global_stats.subdomains_urls.add(link.url)
+                                continue
 
-                        item['internal_links'].append(link.url)
+                            item['internal_links'].append(link.url)
 
-                        if link.url not in self.global_stats.internal_urls:
-                            self.global_stats.internal_urls.add(link.url)
-                            yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
+                            if link.url not in self.global_stats.internal_urls:
+                                yield scrapy.Request(link.url,
+                                                     callback=self.parse,
+                                                     dont_filter=True)
+                                # self.global_stats.internal_urls.add(link.url)
+                        else:
+                            item['external_links'].append(link.url)
+                            self.global_stats.external_urls.add(link.url)
+            except Exception:
+                item['files_links'].append(response.url)
+                self.global_stats.files_urls.add(response.url)
 
-                    else:
-                        item['external_links'].append(link.url)
-                        self.global_stats.external_urls.add(link.url)
-        except Exception:
-            item['files_links'].append(response.url)
-            self.global_stats.files_urls.add(response.url)
-
-        asyncio.set_event_loop(asyncio.new_event_loop())
-        self.global_stats.loop.run_until_complete(self.global_stats.insert(self.collection, item))
-        yield item
+            asyncio.set_event_loop(asyncio.new_event_loop())
+            self.global_stats.loop.run_until_complete(self.global_stats.insert(self.collection, item))
+            yield item
 
     def statistics(self, url, status):
         status = str(status)
@@ -135,17 +145,17 @@ if __name__ == "__main__":
     process = CrawlerProcess({
         'HTTPERROR_ALLOW_ALL': True,
         'DOWNLOAD_DELAY': 0.25,
-        'REDIRECT_ENABLED': True,
         'LOG_LEVEL': 'INFO',
-        'DOWNLOADER_MIDDLEWARES':
-            {
-                "scrapy.downloadermiddlewares.retry.RetryMiddleware": 503
-            },
+        # 'DOWNLOADER_MIDDLEWARES':
+        #     {
+        #         "scrapy.downloadermiddlewares.retry.RetryMiddleware": 503
+        #     },
+        'REDIRECT_ENABLED': True,
         'RETRY_ENABLED': True,
         'RETRY_TIMES': 1,
+        'RETRY_HTTP_CODES': [503],
         # 'FEED_URI': "output.json",
         # 'FEED_FORMAT': 'json'
-
     })
     process.crawl(Purumpurum)
     process.start()

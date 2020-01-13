@@ -3,7 +3,6 @@ import sqlite3
 import time
 import pickle
 import stanfordnlp
-# stanfordnlp.download('ru')
 
 from pymongo import MongoClient
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -30,9 +29,9 @@ class InvertedIndex:
         self.doc_iter = 1
         self.create()
         self.dump_index('uncompressed_index.pickle')
-        self.compress_index()
-        self.dump_index('compressed_index.pickle')
-        self.search('Москва')
+        # self.compress_index()
+        # self.dump_index('compressed_index.pickle')
+        # self.search('Москва')
 
     def compress_index(self):
         for word in self.global_index:
@@ -65,7 +64,7 @@ class InvertedIndex:
             self.doc_urls[self.doc_iter] = document['url']
             self.doc_iter += 1
             self.add_to_index(document, self.doc_iter - 1)
-            if i % 10 == 0:
+            if i % 100 == 0:
                 # print(self.global_index)
                 print(i, time.time() - start_time)
             i += 1
