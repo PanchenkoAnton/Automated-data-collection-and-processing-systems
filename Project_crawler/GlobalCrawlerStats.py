@@ -34,7 +34,7 @@ class GlobalCrawlerStats:
         return self.get_domain(link1) == self.get_domain(link2)
 
     async def insert(self, collection, document):
-        return await collection.insert_one(dict(document))
+        collection.insert_one(dict(document))
 
     def write_to_db(self):
         asyncio.set_event_loop(asyncio.new_event_loop())

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import asyncio
+import json
 
 import scrapy
 import tldextract
 from scrapy import signals
 from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import Rule, CrawlSpider
+from scrapy.spiders import Rule, CrawlSpider, Spider
 
 from Project_crawler.GlobalCrawlerStats import GlobalCrawlerStats
 from Project_crawler.scraper_item import ScraperItem
