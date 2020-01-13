@@ -34,7 +34,7 @@ class Purumpurum(CrawlSpider):
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
 
     rules = (Rule(LinkExtractor(allow=()), callback='start_requests',
-                  follow=True),)
+                  follow=False),)
 
     collection = global_stats.db[global_stats.name]
 
@@ -60,15 +60,11 @@ class Purumpurum(CrawlSpider):
             # return
         else:
             self.global_stats.internal_urls.add(response.url)
-            # self.GLOBAL_COUNTER += 1
-            # print(self.GLOBAL_COUNTER)
             self.statistics(response.url, response.status)
             item = ScraperItem()
             item['url'] = response.url
             if response.status != 200:
                 return
-            if response.status == 503:
-                print(response.url)
             try:
                 item['data'] = HTMLParser(text=self.response(response)).get_text()
                 item['external_links'] = []
