@@ -84,8 +84,9 @@ class Purumpurum(CrawlSpider):
                         item['external_links'].append(link.url)
                         self.global_stats.external_urls.add(link.url)
         except Exception:
-            item['files_links'].append(response.url)
+            item['data'] = ''
             self.global_stats.files_urls.add(response.url)
+            return
 
         asyncio.set_event_loop(asyncio.new_event_loop())
         self.global_stats.loop.run_until_complete(self.global_stats.insert(self.collection, item))

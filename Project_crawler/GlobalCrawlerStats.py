@@ -46,6 +46,7 @@ class GlobalCrawlerStats:
              "external_urls": list(self.external_urls),
              "subdomains_urls": list(self.subdomains_urls),
              "files_urls": list(self.files_urls),
+             "files_urls_number": len(list(self.files_urls)),
              "code_stats": dict((k, [i for i in v[1]]) for k, v in self.stats['statuses'].items()),
              "total_pages": self.stats['count'],
              "internal_url_number": len(list(self.internal_urls)),
