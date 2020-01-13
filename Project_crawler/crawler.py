@@ -152,7 +152,7 @@ if __name__ == "__main__":
         #     },
         'REDIRECT_ENABLED': True,
         'RETRY_ENABLED': True,
-        'RETRY_TIMES': 1,
+        'RETRY_TIMES': 3,
         'RETRY_HTTP_CODES': [503],
         # 'FEED_URI': "output.json",
         # 'FEED_FORMAT': 'json'
