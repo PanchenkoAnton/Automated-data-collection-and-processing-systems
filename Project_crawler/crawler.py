@@ -11,6 +11,7 @@ from scrapy.spiders import Rule, CrawlSpider, Spider
 
 from Project_crawler.GlobalCrawlerStats import GlobalCrawlerStats
 from Project_crawler.scraper_item import ScraperItem
+from Project_parser.parsers.HTMLParser import HTMLParser
 
 
 class Purumpurum(CrawlSpider):
@@ -65,14 +66,15 @@ class Purumpurum(CrawlSpider):
             item = ScraperItem()
             item['url'] = response.url
             if response.status != 200:
-                item['data'] = self.response(response)
                 return
-            item['data'] = self.response(response)
-            item['external_links'] = []
-            item['internal_links'] = []
-            item['subdomains_links'] = []
-            item['files_links'] = []
+            if response.status == 503:
+                print(response.url)
             try:
+                item['data'] = HTMLParser(text=self.response(response)).get_text()
+                item['external_links'] = []
+                item['internal_links'] = []
+                item['subdomains_links'] = []
+                item['files_links'] = []
                 links = LinkExtractor().extract_links(response)
                 self.global_stats.total_links += len(links)
                 for link in links:
