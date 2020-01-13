@@ -47,11 +47,13 @@ class GlobalCrawlerStats:
              "subdomains_urls": list(self.subdomains_urls),
              "files_urls": list(self.files_urls),
              "code_stats": dict((k, [i for i in v[1]]) for k, v in self.stats['statuses'].items()),
-             "total_pages" : self.stats['count'],
+             "total_pages": self.stats['count'],
              "internal_url_number": len(list(self.internal_urls)),
              "external_urls_number": len(list(self.external_urls)),
              "total_links": self.total_links,
-             "broken_links": self.broken_links
+             "broken_links": self.broken_links,
+             "subdomains_number": len({tldextract.extract(i.replace('/www.', '/.'))[0].strip('.') for i in self.subdomains_urls}),
+             "subdomains_names": list({tldextract.extract(i.replace('/www.', '/.'))[0].strip('.') for i in self.subdomains_urls})
              }
         ))
         self.loop.close()

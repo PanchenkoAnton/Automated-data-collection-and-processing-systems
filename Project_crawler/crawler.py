@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import asyncio
-import json
 
 import scrapy
 import tldextract
@@ -11,6 +10,7 @@ from scrapy.spiders import Rule, CrawlSpider
 
 from Project_crawler.GlobalCrawlerStats import GlobalCrawlerStats
 from Project_crawler.scraper_item import ScraperItem
+from Project_parser.parsers.HTMLParser import HTMLParser
 
 
 class Purumpurum(CrawlSpider):
@@ -25,19 +25,18 @@ class Purumpurum(CrawlSpider):
 
     name = "purumpurum"
 
-    allowed_domains = ["msu"]
-
-    start_urls = ["https://www.msu.ru/en/sitemap.html"]
+    # allowed_domains = ["msu.ru", "www.msu.ru"]
+    # custom = ["https://www.msu.ru/"]
+    allowed_domains = ["spbu.ru"]
+    custom = ["https://spbu.ru/sitemap.xml"]
 
     global_stats = GlobalCrawlerStats(name=allowed_domains[0])
-
-    rules = (Rule(LinkExtractor(allow=()), callback='start_requests', follow=True),)
 
     collection = global_stats.db[global_stats.name]
 
     def start_requests(self):
-        for url in self.start_urls:
-            yield scrapy.Request(url, callback=self.parse, dont_filter=True)
+        for url in self.custom:
+            yield scrapy.Request(url, callback=self.parse_custom)
 
     def response(self, response):
         try:
@@ -46,26 +45,28 @@ class Purumpurum(CrawlSpider):
             response = response.body.decode('latin-1')
         return response
 
-    def parse(self, response):
+    def parse_custom(self, response):
+        self.global_stats.internal_urls.add(response.url)
         self.statistics(response.url, response.status)
         item = ScraperItem()
         item['url'] = response.url
         if response.status != 200:
-            item['data'] = self.response(response)
             return
-        item['data'] = self.response(response)
-        item['external_links'] = []
-        item['internal_links'] = []
-        item['subdomains_links'] = []
-        item['files_links'] = []
         try:
-            links = LinkExtractor().extract_links(response)
+            item['data'] = HTMLParser(text=self.response(response)).get_text()
+            item['external_links'] = []
+            item['internal_links'] = []
+            item['subdomains_links'] = []
+            item['files_links'] = []
+            links = LinkExtractor(unique=True).extract_links(response)
             self.global_stats.total_links += len(links)
             for link in links:
                 for allowed_domain in self.allowed_domains:
 
                     if self.global_stats.compare_domains(allowed_domain, link.url):
-
+                        if '/tel:' in link.url:
+                            self.global_stats.total_links -= 1
+                            continue
                         if tldextract.extract(link.url).subdomain and tldextract.extract(
                                 link.url).subdomain != 'www':
                             item['subdomains_links'].append(link.url)
@@ -74,10 +75,10 @@ class Purumpurum(CrawlSpider):
 
                         item['internal_links'].append(link.url)
 
-                        if link.url not in self.global_stats.internal_urls:
-                            self.global_stats.internal_urls.add(link.url)
-                            yield scrapy.Request(link.url, callback=self.parse, dont_filter=True)
-
+                        # if link.url not in self.global_stats.internal_urls:
+                        yield scrapy.Request(link.url,
+                                             callback=self.parse_custom)
+                        # self.global_stats.internal_urls.add(link.url)
                     else:
                         item['external_links'].append(link.url)
                         self.global_stats.external_urls.add(link.url)
@@ -111,20 +112,12 @@ class Purumpurum(CrawlSpider):
 
 if __name__ == "__main__":
     process = CrawlerProcess({
-        'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,'
-                      ' like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-        'HTTPCACHE_ENABLED': True,
-        'AUTOTHROTTLE_ENABLED': True,
-        #'HTTPERROR_ALLOWED_CODES': [404, 403, 504, 503, 301],
+        'USER_AGENT': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
+                      ' Chrome/79.0.3945.117 Safari/537.36',
         'HTTPERROR_ALLOW_ALL': True,
-        'AUTOTHROTTLE_TARGET_CONCURRENCY': 2.0,
-        'CONCURRENT_REQUESTS_PER_DOMAIN': 33,
-        'CONCURRENT_REQUESTS': 33,
+        'DOWNLOAD_DELAY': 0.1,
         'LOG_LEVEL': 'INFO',
-        'REDIRECT_ENABLED': False,
-        #'FEED_URI': "output.json",
-        #'FEED_FORMAT': 'json'
-
+        'REDIRECT_ENABLED': True
     })
     process.crawl(Purumpurum)
     process.start()
