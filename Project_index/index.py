@@ -2,6 +2,8 @@ import asyncio
 import sqlite3
 import time
 import pickle
+
+import spacy
 import stanfordnlp
 
 from pymongo import MongoClient
@@ -88,7 +90,8 @@ class InvertedIndex:
         #         tf[token] =
         tokens = [token.lower() for token in tokens]
         tmp_text = ' '.join(tokens)
-        doc_text = nlp(tmp_text)
+        nlp.max_length = 10e7
+        doc_text = nlp(tmp_text, disable=['ner', 'parser'])
         lemmas = []
         for s in doc_text:
             lemma = s.lemma_
@@ -121,4 +124,4 @@ class InvertedIndex:
 
 
 if __name__ == '__main__':
-    index = InvertedIndex('msu', 27017)
+    index = InvertedIndex('spbu_huge', 27017)
