@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from Project_index.create_index import Index
+from Project_index.index import InvertedIndex
 import pymongo
 
 
@@ -14,10 +14,12 @@ class IndexTest(unittest.TestCase):
         db = client["test_index"]
 
     def test_empty_doc(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_empty_doc'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": ""})
+        db[test_name].insert_one({"url": "link1", "data": ""})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -25,11 +27,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_empty_docs(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_empty_docs'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": ""})
-        db[test_name].insert_one({"url": link2, "data": ""})
+        db[test_name].insert_one({"url": "link1", "data": ""})
+        db[test_name].insert_one({"url": "link2", "data": ""})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -37,10 +41,12 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_only_punctuation(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_one_doc_only_punctuation'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": ", :'\"\\|/&   !"})
+        db[test_name].insert_one({"url": "link1", "data": ", :'\"\\|/&   !"})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -92,10 +98,12 @@ class IndexTest(unittest.TestCase):
     #     self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_lowercase(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_one_doc_lowercase'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": "WORD Word wORD word"})
+        db[test_name].insert_one({"url": "link1", "data": "WORD Word wORD word"})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -103,10 +111,12 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_one_word(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_one_doc_one_word'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": "word"})
+        db[test_name].insert_one({"url": "link1", "data": "word"})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -114,10 +124,12 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_many_words(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_one_doc_many_words'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": "  word1    word2 "})
+        db[test_name].insert_one({"url": "link1", "data": "  word1    word2 "})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -125,10 +137,12 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_repeated_words(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_one_doc_repeated_words'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": " word1 word2 word1 word2 word1 word2 word1 "})
+        db[test_name].insert_one({"url": "link1", "data": " word1 word2 word1 word2 word1 word2 word1 "})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -136,11 +150,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_one_word(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_many_docs_one_word'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": "word"})
-        db[test_name].insert_one({"url": link2, "data": "word"})
+        db[test_name].insert_one({"url": "link1", "data": "word"})
+        db[test_name].insert_one({"url": "link2", "data": "word"})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -148,11 +164,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_many_words(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_many_docs_many_words'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": "word1 word2"})
-        db[test_name].insert_one({"url": link2, "data": "word2 word1"})
+        db[test_name].insert_one({"url": "link1", "data": "word1 word2"})
+        db[test_name].insert_one({"url": "link2", "data": "word2 word1"})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -161,11 +179,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_repeated_words(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_many_docs_repeated_words'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": " word1 word2 word1 word2 word1 word2 word1 "})
-        db[test_name].insert_one({"url": link2, "data": " word2 word1 word2 word1 word2 word1 word2 "})
+        db[test_name].insert_one({"url": "link1", "data": " word1 word2 word1 word2 word1 word2 word1 "})
+        db[test_name].insert_one({"url": "link2", "data": " word2 word1 word2 word1 word2 word1 word2 "})
 
         index = InvertedIndex(test_name)
         index.create()
@@ -174,11 +194,13 @@ class IndexTest(unittest.TestCase):
         self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_repeated_words_stopwords_and_punctuation(self):
+        client = pymongo.MongoClient("mongodb://localhost:27000/")
+        db = client["test_index"]
         test_name = 'test_many_docs_repeated_words_stopwords_and_punctuation'
         if test_name in db.list_collection_names():
             db[test_name].drop()
-        db[test_name].insert_one({"url": link1, "data": " word1 and word2 or word1 by word2 word1 word2 word1 "})
-        db[test_name].insert_one({"url": link2, "data": " word2; word1, word2 . word1 .word2 word1. \"word2\" "})
+        db[test_name].insert_one({"url": "link1", "data": " word1 and word2 or word1 by word2 word1 word2 word1 "})
+        db[test_name].insert_one({"url": "link2", "data": " word2; word1, word2 . word1 .word2 word1. \"word2\" "})
 
         index = InvertedIndex(test_name)
         index.create()
