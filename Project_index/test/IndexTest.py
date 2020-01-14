@@ -3,84 +3,188 @@
 
 import unittest
 from Project_index.create_index import Index
+import pymongo
 
 
 class IndexTest(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        client = pymongo.MongoClient("mongodb://localhost:27017/")
+        db = client["test_index"]
+
     def test_empty_doc(self):
-        index = Index('test_empty_doc')
-        test_tf = {}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_empty_doc'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": ""})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_empty_docs(self):
-        index = Index('test_empty_docs')
-        test_tf = {}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_empty_docs'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": ""})
+        db[test_name].insert_one({"url": link2, "data": ""})
 
-    def test_one_doc_only_stopwords(self):
-        index = Index('test_one_doc_only_stopwords')
-        test_tf = {}
-        self.assertEqual(index.global_tf, test_tf)
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_only_punctuation(self):
-        index = Index('test_one_doc_only_punctuation')
-        test_tf = {}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_one_doc_only_punctuation'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": ", :'\"\\|/&   !"})
 
-    def test_one_doc_stopwords_and_punctuation(self):
-        index = Index('test_one_doc_stopwords_and_punctuation')
-        test_tf = {}
-        self.assertEqual(index.global_tf, test_tf)
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {}
+        self.assertEqual(index.global_index, handmade_index)
 
-    def test_one_doc_lemmas(self):
-        index = Index('test_one_doc_lemmas')  # swim swam swimming
-        test_tf = {'swim': [(3, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
-
-    def test_one_doc_lemmas_russian(self):
-        index = Index('test_one_doc_lemmas_russian')  # экзамен экзамены экзамену экзаменов
-        test_tf = {'экзамен': [(4, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
+    # def test_one_doc_stopwords_and_punctuation(self):
+    #     test_name = 'test_one_doc_stopwords_and_punctuation'
+    #     if test_name in db.list_collection_names():
+    #         db[test_name].drop()
+    #     db[test_name].insert_one({"url": link1, "data": "and,  :'\"\\|/by&   !or"})
+    #
+    #     index = InvertedIndex(test_name)
+    #     index.create()
+    #     handmade_index = {}
+    #     self.assertEqual(index.global_index, handmade_index)
+    #
+    # def test_one_doc_only_stopwords(self):
+    #     test_name = 'test_one_doc_only_stopwords'
+    #     if test_name in db.list_collection_names():
+    #         db[test_name].drop()
+    #     db[test_name].insert_one({"url": link1, "data": " and by or"})
+    #
+    #     index = InvertedIndex(test_name)
+    #     index.create()
+    #     handmade_index = {}
+    #     self.assertEqual(index.global_index, handmade_index)
+    #
+    # def test_one_doc_lemmas(self):
+    #     test_name = 'test_one_doc_lemmas'
+    #     if test_name in db.list_collection_names():
+    #         db[test_name].drop()
+    #     db[test_name].insert_one({"url": link1, "data": "swim swam swimming"})
+    #
+    #     index = InvertedIndex(test_name)
+    #     index.create()
+    #     handmade_index = {'swim': [(index.doc_ids['link1'], 3)]}
+    #     self.assertEqual(index.global_index, handmade_index)
+    #
+    # def test_one_doc_lemmas_russian(self):
+    #     test_name = 'test_one_doc_lemmas_russian'
+    #     if test_name in db.list_collection_names():
+    #         db[test_name].drop()
+    #     db[test_name].insert_one({"url": link1, "data": "экзамен экзамены экзамену экзаменов"})
+    #
+    #     index = InvertedIndex(test_name)
+    #     index.create()
+    #     handmade_index = {'экзамен': [(index.doc_ids['link1'], 4)]}
+    #     self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_lowercase(self):
-        index = Index('test_one_doc_lowercase')  # WORD Word wORD word
-        test_tf = {'word': [(4, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_one_doc_lowercase'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": "WORD Word wORD word"})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word': [(index.doc_ids['link1'], 4)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_one_word(self):
-        index = Index('test_one_doc_one_word')
-        test_tf = {'word': [(1, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_one_doc_one_word'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": "word"})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word': [(index.doc_ids['link1'], 1)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_many_words(self):
-        index = Index('test_one_doc_many_words')
-        test_tf = {'word1': [(1, 'link1')], 'word2': [(1, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_one_doc_many_words'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": "  word1    word2 "})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word1': [(index.doc_ids['link1'], 1)], 'word2': [(index.doc_ids['link1'], 1)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_one_doc_repeated_words(self):
-        index = Index('test_one_doc_repeated_word')
-        test_tf = {'word1': [(5, 'link1')], 'word2': [(3, 'link1')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_one_doc_repeated_words'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": " word1 word2 word1 word2 word1 word2 word1 "})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word1': [(index.doc_ids['link1'], 5)], 'word2': [(index.doc_ids['link1'], 3)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_one_word(self):
-        index = Index('test_many_doc_one_word')
-        test_tf = {'word': [(1, 'link1'), (1, 'link2')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_many_docs_one_word'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": "word"})
+        db[test_name].insert_one({"url": link2, "data": "word"})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word': [(index.doc_ids['link1'], 1), (index.doc_ids['link2'], 1)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_many_words(self):
-        index = Index('test_many_docs_many_words')
-        test_tf = {'word1': [(1, 'link1'), (1, 'link2')], 'word2': [(1, 'link1'), (1, 'link2')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_many_docs_many_words'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": "word1 word2"})
+        db[test_name].insert_one({"url": link2, "data": "word2 word1"})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word1': [(index.doc_ids['link1'], 1), (index.doc_ids['link2'], 1)],
+                          'word2': [(index.doc_ids['link1'], 1), (index.doc_ids['link2'], 1)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_repeated_words(self):
-        index = Index('test_many_docs_repeated_words')
-        test_tf = {'word1': [(5, 'link1'), (3, 'link2')], 'word2': [(3, 'link1'), (5, 'link2')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_many_docs_repeated_words'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": " word1 word2 word1 word2 word1 word2 word1 "})
+        db[test_name].insert_one({"url": link2, "data": " word2 word1 word2 word1 word2 word1 word2 "})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word1': [(index.doc_ids['link1'], 5), (index.doc_ids['link2'], 3)],
+                          'word2': [(index.doc_ids['link1'], 3), (index.doc_ids['link2'], 5)]}
+        self.assertEqual(index.global_index, handmade_index)
 
     def test_many_docs_repeated_words_stopwords_and_punctuation(self):
-        index = Index('test_many_docs_repeated_words_stopwords_and_punctuation')
-        test_tf = {'word1': [(5, 'link1'), (3, 'link2')], 'word2': [(3, 'link1'), (5, 'link2')]}
-        self.assertEqual(index.global_tf, test_tf)
+        test_name = 'test_many_docs_repeated_words_stopwords_and_punctuation'
+        if test_name in db.list_collection_names():
+            db[test_name].drop()
+        db[test_name].insert_one({"url": link1, "data": " word1 and word2 or word1 by word2 word1 word2 word1 "})
+        db[test_name].insert_one({"url": link2, "data": " word2; word1, word2 . word1 .word2 word1. \"word2\" "})
+
+        index = InvertedIndex(test_name)
+        index.create()
+        handmade_index = {'word1': [(index.doc_ids['link1'], 5), (index.doc_ids['link2'], 3)],
+                          'word2': [(index.doc_ids['link1'], 3), (index.doc_ids['link2'], 5)]}
+        self.assertEqual(index.global_index, handmade_index)
 
 
 if __name__ == '__main__':
