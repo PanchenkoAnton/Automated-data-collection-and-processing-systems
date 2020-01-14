@@ -30,19 +30,18 @@ class InvertedIndex:
         self.global_index = {}
         self.doc_urls = {}
         self.doc_iter = 1
-        print(time.time() - start_time)
-        self.create()
-        print(time.time() - start_time)
-        self.dump('uncompressed_index_full5.pickle')
-        print(time.time() - start_time)
-        self.search('санкт-петербург')
-        self.search('кропочев')
-        self.search('университет')
-        self.search('санкт-петербургский')
-        self.search('здравствуйте')
-        self.search('блеканов')
-        self.search('петросян')
-        print(time.time() - start_time)
+        # print(time.time() - start_time)
+        # self.create()
+        # print(time.time() - start_time)
+        # self.dump('uncompressed_index_full5.pickle')
+        # print(time.time() - start_time)
+        # self.search('санкт-петербург')
+        # self.search('кропочев')
+        # self.search('университет')
+        # self.search('санкт-петербургский')
+        # self.search('здравствуйте')
+        # self.search('петросян')
+        # print(time.time() - start_time)
         # self.dump_index('compressed_index.pickle')
         # self.search('Москва')
 
@@ -83,6 +82,7 @@ class InvertedIndex:
             if self.doc_iter > 40000:
                 return
             self.doc_urls[self.doc_iter] = document['url']
+            self.doc_urls[document['url']] = self.doc_iter
             self.add_to_index(document, self.doc_iter)
             if i % 100 == 0:
                 # print(self.global_index)
@@ -125,17 +125,6 @@ class InvertedIndex:
 
     async def count(self):
         return await self.db_data[self.collection].count_documents({})
-
-    # async def create(self):
-    #     # self.global_tf = {}
-    #     async for document in self.db_data[self.collection].find():
-    #         print(self.create_local_index(document))
-    #         input()
-    #         # self.global_index = self.merge_indexes(
-    #         #     self.global_index, self.process_local_index(document)
-    #         # )
-    #         # self.global_tf = self.merge_tf(self.global_tf, self.make_document_tf(document))
-    #         # print(self.global_tf)
 
 
 if __name__ == '__main__':
