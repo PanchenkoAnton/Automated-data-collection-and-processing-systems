@@ -7,7 +7,7 @@ docx==0.2.4
 docx2txt==0.8
 docxpy==0.8.5
 fpdf==1.7.2
-lxml==4.6.3
+lxml==4.9.1
 Pillow>=6.2.2
 PyPDF2==1.26.0
 soupsieve==1.9.5
