@@ -90,7 +90,12 @@ public struct AddEditSubscriptionView: View {
     }
     
     private var isFormValid: Bool {
-        !name.isEmpty && Double(cost) != nil && Double(cost)! > 0
+        guard !name.isEmpty,
+              let costValue = Double(cost),
+              costValue > 0 else {
+            return false
+        }
+        return true
     }
     
     private func saveSubscription() {

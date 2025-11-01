@@ -7,13 +7,37 @@ public enum BillingCycle: String, Codable, CaseIterable {
     case quarterly = "Quarterly"
     case yearly = "Yearly"
     
-    /// Returns the number of days in the billing cycle
+    /// Average weeks per month (52 weeks / 12 months)
+    private static let averageWeeksPerMonth: Double = 4.33
+    
+    /// Returns the approximate number of days in the billing cycle
+    /// Note: Monthly is approximated as 30 days for simplicity
     public var days: Int {
         switch self {
         case .weekly: return 7
         case .monthly: return 30
         case .quarterly: return 90
         case .yearly: return 365
+        }
+    }
+    
+    /// Converts the cost to monthly equivalent
+    func toMonthlyCost(_ cost: Double) -> Double {
+        switch self {
+        case .weekly: return cost * Self.averageWeeksPerMonth
+        case .monthly: return cost
+        case .quarterly: return cost / 3
+        case .yearly: return cost / 12
+        }
+    }
+    
+    /// Converts the cost to yearly equivalent
+    func toYearlyCost(_ cost: Double) -> Double {
+        switch self {
+        case .weekly: return cost * 52
+        case .monthly: return cost * 12
+        case .quarterly: return cost * 4
+        case .yearly: return cost
         }
     }
 }
@@ -53,21 +77,11 @@ public struct Subscription: Identifiable, Codable, Equatable {
     
     /// Calculate monthly cost regardless of billing cycle
     public var monthlyCost: Double {
-        switch billingCycle {
-        case .weekly: return cost * 4.33
-        case .monthly: return cost
-        case .quarterly: return cost / 3
-        case .yearly: return cost / 12
-        }
+        billingCycle.toMonthlyCost(cost)
     }
     
     /// Calculate yearly cost
     public var yearlyCost: Double {
-        switch billingCycle {
-        case .weekly: return cost * 52
-        case .monthly: return cost * 12
-        case .quarterly: return cost * 4
-        case .yearly: return cost
-        }
+        billingCycle.toYearlyCost(cost)
     }
 }
