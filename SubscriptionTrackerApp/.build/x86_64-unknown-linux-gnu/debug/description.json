@@ -1,0 +1,761 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.xctest",
+      "packagePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp",
+      "productName" : "SubscriptionTrackerPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+    "SubscriptionTrackerPackageDiscoveredTests"
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.SubscriptionTrackerCore-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/sources",
+      "importPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/Subscription.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/SubscriptionManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SubscriptionTrackerCore",
+      "moduleOutputPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerCore.swiftmodule",
+      "objects" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/Subscription.swift.o",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/SubscriptionManager.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/include/SubscriptionTrackerCore-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "subscriptiontrackerapp",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/Subscription.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/SubscriptionManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerCore.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/Subscription.swift",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/SubscriptionManager.swift"
+      ],
+      "tempsPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SubscriptionTrackerPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/sources",
+      "importPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/SubscriptionTrackerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SubscriptionTrackerPackageDiscoveredTests",
+      "moduleOutputPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageDiscoveredTests.swiftmodule",
+      "objects" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/SubscriptionTrackerTests.swift.o",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/include/SubscriptionTrackerPackageDiscoveredTests-Swift.h",
+        "-color-diagnostics",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "subscriptiontrackerapp",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/SubscriptionTrackerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageDiscoveredTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/SubscriptionTrackerTests.swift",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift"
+      ],
+      "tempsPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SubscriptionTrackerPackageTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/sources",
+      "importPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageDiscoveredTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SubscriptionTrackerPackageTests",
+      "moduleOutputPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageTests.swiftmodule",
+      "objects" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/include/SubscriptionTrackerPackageTests-Swift.h",
+        "-color-diagnostics",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "subscriptiontrackerapp",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SubscriptionTrackerTests-x86_64-unknown-linux-gnu-debug.module" : {
+      "executable" : "/usr/share/swift/usr/bin/swiftc",
+      "fileList" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/sources",
+      "importPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionManagerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SubscriptionTrackerTests",
+      "moduleOutputPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerTests.swiftmodule",
+      "objects" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swift.o",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j4",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-g",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "subscriptiontrackerapp",
+        "-Xcc",
+        "-fno-omit-frame-pointer"
+      ],
+      "outputFileMapPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionManagerTests.swift",
+        "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionTests.swift"
+      ],
+      "tempsPath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "SubscriptionTrackerCore" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "SubscriptionTrackerCore",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-c",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/Subscription.swift",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/SubscriptionManager.swift",
+      "-I",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/include/SubscriptionTrackerCore-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ],
+    "SubscriptionTrackerPackageDiscoveredTests" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "SubscriptionTrackerPackageDiscoveredTests",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-c",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/SubscriptionTrackerTests.swift",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift",
+      "-I",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/include/SubscriptionTrackerPackageDiscoveredTests-Swift.h",
+      "-color-diagnostics",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ],
+    "SubscriptionTrackerPackageTests" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "SubscriptionTrackerPackageTests",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-c",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift",
+      "-I",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/include/SubscriptionTrackerPackageTests-Swift.h",
+      "-color-diagnostics",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ],
+    "SubscriptionTrackerTests" : [
+      "/usr/share/swift/usr/bin/swiftc",
+      "-module-name",
+      "SubscriptionTrackerTests",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-c",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionManagerTests.swift",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionTests.swift",
+      "-I",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules",
+      "-target",
+      "x86_64-unknown-linux-gnu",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j4",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-g",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "subscriptiontrackerapp",
+      "-Xcc",
+      "-fno-omit-frame-pointer",
+      "-driver-use-frontend-path",
+      "/usr/share/swift/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "SubscriptionTrackerCore" : [
+
+    ],
+    "SubscriptionTrackerPackageDiscoveredTests" : [
+      "SubscriptionTrackerTests",
+      "SubscriptionTrackerCore"
+    ],
+    "SubscriptionTrackerPackageTests" : [
+      "SubscriptionTrackerPackageDiscoveredTests",
+      "SubscriptionTrackerTests",
+      "SubscriptionTrackerCore"
+    ],
+    "SubscriptionTrackerTests" : [
+      "SubscriptionTrackerCore"
+    ]
+  },
+  "testDiscoveryCommands" : {
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swift.o"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/SubscriptionTrackerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        }
+      ]
+    }
+  },
+  "testEntryPointCommands" : {
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/Modules/SubscriptionTrackerPackageDiscoveredTests.swiftmodule"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/Subscription.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Sources/SubscriptionTrackerCore/SubscriptionManager.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/sources"
+    },
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/SubscriptionTrackerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.derived/all-discovered-tests.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/sources"
+    },
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/sources"
+    },
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/Subscription.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/SubscriptionManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerCore.build/SubscriptionTrackerCore.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/SubscriptionTrackerPackageDiscoveredTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/SubscriptionTrackerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageDiscoveredTests.build/all-discovered-tests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/SubscriptionTrackerPackageTests.swiftmodule.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTrackerTests.swiftmodule.o"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerPackageTests.product/Objects.LinkFileList"
+    },
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionManagerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionTests.swift"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/sources"
+    },
+    "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/usr/share/swift/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/swift-version--1BFCD5C06E9F820A.txt"
+    }
+  }
+}

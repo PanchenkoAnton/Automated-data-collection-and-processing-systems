@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/master.swiftdeps"
+  },
+  "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionManagerTests.swift": {
+    "dependencies": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.d",
+    "object": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swift.o",
+    "swiftmodule": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.swiftdeps",
+    "diagnostics": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionManagerTests.dia"
+  },
+  "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/Tests/SubscriptionTrackerTests/SubscriptionTests.swift": {
+    "dependencies": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.d",
+    "object": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swift.o",
+    "swiftmodule": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.swiftdeps",
+    "diagnostics": "/home/runner/work/Automated-data-collection-and-processing-systems/Automated-data-collection-and-processing-systems/SubscriptionTrackerApp/.build/x86_64-unknown-linux-gnu/debug/SubscriptionTrackerTests.build/SubscriptionTests.dia"
+  }
+}
