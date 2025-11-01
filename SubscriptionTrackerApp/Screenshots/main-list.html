@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .iphone {
+            width: 390px;
+            height: 844px;
+            background: white;
+            border-radius: 40px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        .status-bar {
+            height: 44px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .nav-bar {
+            height: 50px;
+            background: white;
+            border-bottom: 0.5px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+        }
+        .nav-title {
+            font-size: 34px;
+            font-weight: bold;
+            padding: 10px 16px;
+        }
+        .summary-card {
+            margin: 16px;
+            padding: 16px;
+            background: rgba(0, 122, 255, 0.1);
+            border-radius: 12px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .summary-label {
+            font-size: 14px;
+            color: #666;
+        }
+        .summary-value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .summary-footer {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+        .subscription-list {
+            background: white;
+        }
+        .subscription-item {
+            padding: 12px 16px;
+            border-bottom: 0.5px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .subscription-name {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        .subscription-category {
+            font-size: 13px;
+            color: #666;
+            margin-top: 2px;
+        }
+        .subscription-cost {
+            font-size: 17px;
+            font-weight: 500;
+            text-align: right;
+        }
+        .subscription-cycle {
+            font-size: 13px;
+            color: #666;
+            margin-top: 2px;
+        }
+        .plus-button {
+            width: 28px;
+            height: 28px;
+            border-radius: 14px;
+            background: #007AFF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone">
+        <div class="status-bar">
+            <span>9:41</span>
+            <div style="display: flex; gap: 5px;">
+                <span>📶</span>
+                <span>📡</span>
+                <span>🔋</span>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div></div>
+            <div></div>
+            <div class="plus-button">+</div>
+        </div>
+        <div class="nav-title">Subscriptions</div>
+        
+        <div class="summary-card">
+            <div class="summary-row">
+                <div>
+                    <div class="summary-label">Monthly Total</div>
+                    <div class="summary-value">$45.97</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="summary-label">Yearly Total</div>
+                    <div class="summary-value">$551.64</div>
+                </div>
+            </div>
+            <div class="summary-footer">3 active subscriptions</div>
+        </div>
+        
+        <div class="subscription-list">
+            <div class="subscription-item">
+                <div>
+                    <div class="subscription-name">Netflix</div>
+                    <div class="subscription-category">Entertainment</div>
+                </div>
+                <div>
+                    <div class="subscription-cost">$15.99</div>
+                    <div class="subscription-cycle">Monthly</div>
+                </div>
+            </div>
+            <div class="subscription-item">
+                <div>
+                    <div class="subscription-name">Spotify</div>
+                    <div class="subscription-category">Music</div>
+                </div>
+                <div>
+                    <div class="subscription-cost">$9.99</div>
+                    <div class="subscription-cycle">Monthly</div>
+                </div>
+            </div>
+            <div class="subscription-item">
+                <div>
+                    <div class="subscription-name">iCloud Storage</div>
+                    <div class="subscription-category">Cloud Storage</div>
+                </div>
+                <div>
+                    <div class="subscription-cost">$19.99</div>
+                    <div class="subscription-cycle">Monthly</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
