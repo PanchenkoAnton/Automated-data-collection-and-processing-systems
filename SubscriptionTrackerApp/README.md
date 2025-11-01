@@ -89,12 +89,14 @@ swift test
 SubscriptionTrackerApp/
 ├── Package.swift
 ├── Sources/
-│   └── SubscriptionTracker/
-│       ├── Subscription.swift              # Data model
-│       ├── SubscriptionManager.swift       # Business logic
-│       ├── SubscriptionListView.swift      # Main list view
-│       ├── AddEditSubscriptionView.swift   # Add/Edit form
-│       └── SubscriptionTrackerApp.swift    # App entry point
+│   ├── SubscriptionTrackerCore/           # Core business logic (platform-independent)
+│   │   ├── Subscription.swift             # Data model
+│   │   └── SubscriptionManager.swift      # Business logic & persistence
+│   └── SubscriptionTrackerUI/             # SwiftUI views (iOS/macOS only)
+│       ├── ObservableSubscriptionManager.swift
+│       ├── SubscriptionListView.swift     # Main list view
+│       ├── AddEditSubscriptionView.swift  # Add/Edit form
+│       └── SubscriptionTrackerApp.swift   # App entry point
 └── Tests/
     └── SubscriptionTrackerTests/
         ├── SubscriptionTests.swift         # Model tests

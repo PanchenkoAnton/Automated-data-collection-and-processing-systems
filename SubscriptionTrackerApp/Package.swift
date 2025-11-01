@@ -1,6 +1,11 @@
 // swift-tools-version:5.9
 import PackageDescription
 
+// Note: The SubscriptionTrackerUI module is intentionally not included in the package
+// definition because it requires SwiftUI, which is only available on Apple platforms.
+// When opened in Xcode on macOS, the UI module will be automatically available.
+// For cross-platform builds (e.g., Linux CI), only the Core module is built.
+
 let package = Package(
     name: "SubscriptionTracker",
     platforms: [
