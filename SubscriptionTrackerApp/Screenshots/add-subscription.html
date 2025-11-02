@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        .iphone {
+            width: 390px;
+            height: 844px;
+            background: #f2f2f7;
+            border-radius: 40px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        .status-bar {
+            height: 44px;
+            background: #f2f2f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .nav-bar {
+            height: 50px;
+            background: #f2f2f7;
+            border-bottom: 0.5px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+        }
+        .nav-button {
+            color: #007AFF;
+            font-size: 17px;
+        }
+        .nav-title {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .form-section {
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        .section-header {
+            padding: 8px 16px;
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            background: #f2f2f7;
+            font-weight: 500;
+        }
+        .form-row {
+            padding: 11px 16px;
+            border-bottom: 0.5px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-row:last-child {
+            border-bottom: none;
+        }
+        .form-label {
+            font-size: 17px;
+            color: #000;
+        }
+        .form-input {
+            font-size: 17px;
+            color: #000;
+            text-align: right;
+            flex: 1;
+            margin-left: 16px;
+        }
+        .picker-value {
+            color: #666;
+        }
+        .toggle {
+            width: 51px;
+            height: 31px;
+            background: #34C759;
+            border-radius: 16px;
+            position: relative;
+        }
+        .toggle::after {
+            content: '';
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 27px;
+            height: 27px;
+            background: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone">
+        <div class="status-bar">
+            <span>9:41</span>
+            <div style="display: flex; gap: 5px;">
+                <span>📶</span>
+                <span>📡</span>
+                <span>🔋</span>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="nav-button">Cancel</div>
+            <div class="nav-title">Add Subscription</div>
+            <div class="nav-button" style="font-weight: 600;">Save</div>
+        </div>
+        
+        <div class="section-header">Subscription Details</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-label">Name</div>
+                <div class="form-input">Netflix</div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Cost</div>
+                <div class="form-input">15.99</div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Billing Cycle</div>
+                <div class="form-input picker-value">Monthly ›</div>
+            </div>
+        </div>
+        
+        <div class="section-header" style="margin-top: 30px;">Additional Information</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-label">Renewal Date</div>
+                <div class="form-input picker-value">Nov 1, 2025 ›</div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Category</div>
+                <div class="form-input">Entertainment</div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">Active</div>
+                <div class="toggle"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
